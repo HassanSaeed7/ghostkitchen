@@ -5,6 +5,8 @@ module.exports = {
   ],
   theme: {
     minHeight: {
+      'ten': '10vh',
+      'third': '35vh',
       'half': '50vh',
       'screen': '100vh'
     },
