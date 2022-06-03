@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import Nav from "../components/Nav"
 import '../styles/globals.css'
 
@@ -6,6 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
     <Nav />
     <Component {...pageProps} />
+    <Footer />
     </>
 
   )
