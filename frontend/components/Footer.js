@@ -1,4 +1,9 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
+import Facebook from '../public/facebook.svg'
+import Instagram from "../public/instagram.svg"
+import Pinterest from "../public/pinterest.svg"
+import Wordpress from "../public/wordpress.svg"
 
 const Footer = () => {
     const [email, setEmail] = useState('')
@@ -100,7 +105,7 @@ const Footer = () => {
 
     <section className='flex justify-between items-center min-h-ten'>
         <div>
-            <p>Subscribe to our newsletter</p>
+            <p className='font-bold text-xl'>Subscribe to our newsletter</p>
             <p>The latest products, offers, and deals straight to your mailbox.</p>
         </div>
         <form onSubmit={submitHandler} className='flex items-baseline gap-5'>
@@ -114,15 +119,37 @@ const Footer = () => {
         <p>&copy; 2022 | Wholesale Inc, All Rights Reserved.</p>
         <ul className='w-1/8 flex gap-3'>
             <li>
-                <a href="/">FB</a>
+                <a href="/">
+                    <Image
+                    src={Facebook}
+                    alt='Facebook'
+                    />
+                </a>
             </li>
             <li>
-                <a href="/">Instagram</a>
+                <a href="/">
+                    <Image
+                    src={Instagram}
+                    alt='Instagram'
+                    />
+                </a>
             </li>
             <li>
-                <a href="/">Pinterest</a>
+                <a href="/">
+                <Image
+                    src={Pinterest}
+                    alt='Pinterest'
+                />
+                </a>
             </li>
-
+            <li>
+                <a href="/">
+                <Image
+                    src={Wordpress}
+                    alt='Wordpress'
+                />
+                </a>
+            </li>
         </ul>
     </section>
     </div>
