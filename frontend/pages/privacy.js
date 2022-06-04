@@ -2,7 +2,7 @@ import React from "react";
 
 const privacy = () => {
   return (
-    <div className="max-w-screen-lg m-auto flex flex-col gap-10 my-10">
+    <div className="m-auto flex flex-col gap-10 my-10 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-xs">
 
 
         <section>

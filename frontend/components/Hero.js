@@ -19,7 +19,7 @@ const Hero = () => {
             <polygon points="50,0 100,0 50,100 0,100" />
           </svg>
 
-          <div className=" mx-auto max-w-7xl min-h-[70vh] px-4 pt-10 sm:pt-12 sm:px-6 md:pt-16 lg:pt-20 lg:px-8 xl:pt-28">
+          <div className=" mx-auto max-w-7xl  px-4 pt-10 sm:pt-12 sm:px-6 md:pt-16 lg:pt-20 lg:px-8 xl:pt-28 lg:min-h-[70vh]">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">Enrich your Health with</span>{' '}
