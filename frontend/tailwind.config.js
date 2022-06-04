@@ -1,12 +1,16 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['Libre-Bakersville', ...defaultTheme.fontFamily.sans]
+    },
     minHeight: {
       'ten': '10vh',
-      'third': '35vh',
+      'third': '30vh',
       'half': '50vh',
       'screen': '100vh'
     },
@@ -18,6 +22,6 @@ module.exports = {
   },
   plugins: [
     // ...
-    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/aspect-ratio')
   ],
 }

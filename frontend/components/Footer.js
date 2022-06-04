@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <div className="bg-gray-800 min-h-half text-white">
-        <div className="max-w-screen-2xl m-auto  divide-y divide-stone-600">
+        <div className="max-w-screen-2xl m-auto divide-y divide-stone-600">
     <div className="min-h-third flex flex-col md:flex-row md:justify-between md:items-center">
 
         <div>
@@ -30,16 +30,16 @@ const Footer = () => {
         <h4 className="font-bold text-xl">Shop</h4>
         <ul>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Tincture</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Gummies</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Capsules</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Ointments</a>
             </li>
         </ul>
     </div>
@@ -49,16 +49,16 @@ const Footer = () => {
         <h4 className="font-bold text-xl">Support</h4>
         <ul>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Returns</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Payments</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Orders</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Get Help</a>
             </li>
         </ul>
     </div>
@@ -67,16 +67,13 @@ const Footer = () => {
         <h4 className="font-bold text-xl">Account</h4>
         <ul>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Cart</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Login</a>
             </li>
             <li>
-                <a href="/">Item</a>
-            </li>
-            <li>
-                <a href="/">Item</a>
+                <a href="/">Register</a>
             </li>
         </ul>
     </div>
@@ -85,13 +82,13 @@ const Footer = () => {
         <h4 className="font-bold text-xl">Legal</h4>
         <ul>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Terms and Conditions</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/privacy">Privacy Policy</a>
             </li>
             <li>
-                <a href="/">Item</a>
+                <a href="/">Lab Reports</a>
             </li>
             <li>
                 <a href="/">Item</a>
@@ -151,6 +148,9 @@ const Footer = () => {
                 </a>
             </li>
         </ul>
+    </section>
+    <section className='flex justify-between items-center min-h-[20vh]'>
+    These products are not for use by or sale to persons under the age of 18. These products should be used only as directed on the label. They should not be used if you are pregnant or nursing. Consult with a physician before use if you have a serious medical condition or use prescription medications. A Doctor's advice should be sought before using these and any other supplemental dietary products. All trademarks and copyrights are property of their respective owners and are not affiliated with nor do they endorse these products. These statements have not been evaluated by the FDA. These products are not intended to diagnose, treat, cure nor prevent any disease. By using this site, you agree to follow the site's Privacy Policy and all Terms & Conditions. Void Where Prohibited by Law. All sales limited to legal-aged residents of the United States of America only.
     </section>
     </div>
     </div>

@@ -109,6 +109,11 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
+"@types/tailwindcss@^3.0.10":
+  "integrity" "sha512-1UnZIHO0NOPyPlPFV0HuMjki2SHkvG9uBA1ZehWj/OQMSROk503nuNyyfmJSIT289yewxTbKoPG+KLxYRvfIIg=="
+  "resolved" "https://registry.npmjs.org/@types/tailwindcss/-/tailwindcss-3.0.10.tgz"
+  "version" "3.0.10"
+
 "@typescript-eslint/parser@^5.21.0":
   "integrity" "sha512-8oGjQF46c52l7fMiPPvX4It3u3V3JipssqDfHQ2hcR0AeR8Zge+OYyKUCm5b70X72N1qXt0qgHenwN6Gc2SXZA=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-5.27.0.tgz"
