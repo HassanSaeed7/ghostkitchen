@@ -1,19 +1,5 @@
-/*
-  This example requires Tailwind CSS v2.0+
+import ShopFilter from "../components/ShopFilter"
 
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
 const products = [
   {
     id: 1,
@@ -86,6 +72,8 @@ const products = [
 export default function Example() {
   return (
     <div className="bg-white">
+      <ShopFilter />
+
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 

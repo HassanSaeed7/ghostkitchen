@@ -33,7 +33,7 @@ const Featured = () => {
   return (
     <>
       <div className="flex flex-col gap-10 m-auto xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-xs">
-        <h2 className="text-7xl text-center">Find Relief Today.</h2>
+        <h2 className="text-5xl font-extrabold text-center">Find Relief Today.</h2>
         <p className="text-center">Discover our best sellers today. </p>
         <div>
           <ul className="flex flex-col justify-center items-center gap-6 lg:flex-row">

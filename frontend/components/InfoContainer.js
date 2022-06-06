@@ -1,45 +1,45 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
+import Image from "next/image"
 import Link from 'next/link'
+
 
 const features = [
   {
-    name: 'Competitive exchange rates',
+    name: 'Unbeatable pricing',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: GlobeAltIcon,
+    src: '/info3.svg',
   },
   {
-    name: 'No hidden fees',
+    name: 'Fast and efficient service',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: ScaleIcon,
+    src: '/info0.svg',
   },
   {
-    name: 'Transfers are instant',
+    name: 'Secure transactions',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: LightningBoltIcon,
+    src: '/info1.svg',
   },
   {
-    name: 'Mobile notifications',
+    name: 'Free delivery on $100+ orders',
     description:
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: AnnotationIcon,
+    src: '/info2.svg',
   },
 ]
 
-export default function Example() {
+export default function InfoContainer() {
   return (
     <div className=" my-12 py-12 bg-[#00d5bf] min-h-half grid items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-xs">
         <div className="lg:text-center">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">First Time?</h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Try Our Newcomer CBD Bundles Today
-          </p>
+          <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            Your Trusted CBD Wholesaler
+          </h3>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            An assortment of Premium CBD Products Delivered to Your Door.
+            An assortment of Premium CBD Products available for retail and wholesale.
           </p>
         </div>
 
@@ -48,8 +48,8 @@ export default function Example() {
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <feature.icon className="h-6 w-6" aria-hidden="true" />
+                  <div className="absolute flex items-center justify-center h-12 w-12 text-white">
+                    <Image src={feature.src} alt='idk' width='50' height='50'/>
                   </div>
                   <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
                 </dt>
@@ -64,6 +64,3 @@ export default function Example() {
     </div>
   )
 }
- <div className='text-right mt-10'>
-          <Link href='/shop'><a className="text-center text-indigo-600 font-semibold underline uppercase">Try CBD Today</a></Link>
-        </div>

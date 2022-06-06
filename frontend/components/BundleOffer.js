@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-/* This example requires Tailwind CSS v2.0+ */
 const features = [
     { name: 'CBD Oil Tincture (250mg)', description: 'Designed by Good Goods, Inc.' },
     { name: 'CBD Gummie Pack (4 ounce)', description: 'A great snack before a night of relaxation.' },
@@ -8,12 +7,14 @@ const features = [
     { name: 'CBD Balm (4 ounce)', description: 'Soothe your aching muscles, the natural way.' },
     ]
 
-  export default function Example() {
+
+
+  export default function BundleOffer() {
     return (
       <div className="bg-white py-24">
         <div className="max-w-2xl mx-auto py-5 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">First Time?</h2>
+            <h2 className="text-4xl font-extrabold text-indigo-600 tracking-tight text-gray-900 md:text-6xl">First Time?</h2>
             <p className="mt-4 text-gray-500">
             Try Our Newcomer CBD Bundles Today. An assortment of Premium CBD Products Delivered to Your Door.
             </p>
