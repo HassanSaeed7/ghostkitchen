@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ShopFilter = () => {
+  const [selection, setSelection] = useState(["All", "Tincture", "Capsules", "Vape"])
+
 
     const selectionHandler = () => {
-
+      selection.filter()
     }
 
   return (
