@@ -37,16 +37,16 @@ const product = {
   sizes: [
     { name: '50mg', inStock: true },
     { name: '100mg', inStock: true },
-    { name: '250mg', inStock: true },
-    { name: '500mg', inStock: true },
+    { name: '200mg', inStock: true },
+    { name: '300mg', inStock: true },
   ],
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   highlights: [
-    'Processed in Southern California',
     'Lab Tested',
     'Quality Assured',
     '100% Natural Ingredients',
+    'Processed in Southern California',
   ],
   details:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
