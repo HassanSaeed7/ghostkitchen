@@ -23,7 +23,7 @@ export default function Nav() {
   }
 
   return (
-    <Disclosure as="nav" className="w-full">
+    <Disclosure as="nav" className="w-full fixed top-0 z-50 bg-white">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

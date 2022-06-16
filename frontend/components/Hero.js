@@ -7,7 +7,7 @@ const Hero = () => {
       <>
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white lg:max-w-2xl lg:w-full md:pb-20 min-h-[95vh]">
+        <div className="relative z-10 pb-8 bg-white lg:max-w-2xl lg:w-full md:pb-20 min-h-[90vh]">
 
         <svg
             className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
