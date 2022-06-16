@@ -65,20 +65,7 @@ const Footer = () => {
         </ul>
     </div>
 
-    <div className="flex flex-col gap-4 justify-center items-center lg:justify-start lg:items-start">
-        <h4 className="font-bold text-xl my-5 lg:my-0">Account</h4>
-        <ul className="grid gap-2 lg:gap-0">
-            <li>
-                <a href="/">Cart</a>
-            </li>
-            <li>
-                <a href="/">Login</a>
-            </li>
-            <li>
-                <a href="/">Register</a>
-            </li>
-        </ul>
-    </div>
+  
 
     <div className="flex flex-col gap-4 justify-center items-center lg:justify-start lg:items-start">
         <h4 className="font-bold text-xl my-5 lg:my-0">Legal</h4>
@@ -92,10 +79,31 @@ const Footer = () => {
             <li>
                 <a href="/">Lab Reports</a>
             </li>
+            <li>
+                <a href="/">Cookies</a>
+            </li>
 
         </ul>
     </div>
 
+
+    <div className="flex flex-col gap-4 justify-center items-center lg:justify-start lg:items-start">
+        <h4 className="font-bold text-xl my-5 lg:my-0">Contact</h4>
+        <ul className="grid gap-2 lg:gap-0">
+            <li>
+                <a href="/">email@email.com</a>
+            </li>
+            <li>
+                <a href="/">(000)000-0000</a>
+            </li>
+            <li>
+                <div>
+                    <p>12345 Address Ave</p>
+                    <p>City, State 00000</p>
+                </div>
+            </li>
+        </ul>
+    </div>
 
     </div>
 

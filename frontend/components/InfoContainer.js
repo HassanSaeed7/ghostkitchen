@@ -32,7 +32,7 @@ const features = [
 
 export default function InfoContainer() {
   return (
-    <div className=" my-12 py-12 bg-[#00d5bf] min-h-half grid items-center">
+    <div className=" my-20 py-12 bg-[#00d5bf] min-h-half grid items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-xs">
         <div className="lg:text-center">
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -60,7 +60,24 @@ export default function InfoContainer() {
         </div>
 
 
+        <div className='flex gap-2 justify-center mt-10'>
+           <a
+                    href="/contact"
+                    className="whitespace-nowrap px-8 py-3 border border-transparent text-base font-medium rounded-md bg-indigo-700 text-white hover:bg-indigo-900 md:py-4 md:text-lg md:px-10"
+                  >
+                    Contact Us
+                  </a>
+                  <a
+                    href="/about"
+                    className="whitespace-nowrap px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                  >
+                    Learn More
+                  </a>
+        </div>
+
+
       </div>
+      
     </div>
   )
 }

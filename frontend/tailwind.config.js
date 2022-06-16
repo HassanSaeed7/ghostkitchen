@@ -12,6 +12,7 @@ module.exports = {
       'ten': '10vh',
       'third': '30vh',
       'half': '50vh',
+      'twothirds': '75vh',
       'screen': '100vh'
     },
     extend: {

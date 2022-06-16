@@ -7,7 +7,7 @@ const Hero = () => {
       <>
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white lg:max-w-2xl lg:w-full md:pb-20">
+        <div className="relative z-10 pb-8 bg-white lg:max-w-2xl lg:w-full md:pb-20 min-h-[95vh]">
 
         <svg
             className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
@@ -43,11 +43,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <div className="lg:h-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <Image
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          className="h-56 w-full object-cover lg:w-full lg:h-full lg:min-h-screen md:h-96 sm:h-72"
           src={HeroImg}
           alt="Hero Image"
+          layout='fill'
         />
       </div>
     </div>

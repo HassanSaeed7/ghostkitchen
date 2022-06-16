@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Img from "../public/oil.jpg";
+import Map from "../components/Map"
 import { Icon } from "@iconify/react";
 
 const contact = () => {
@@ -105,8 +106,10 @@ const contact = () => {
         </div>
       </div>
 
-      <div className="lg:w-2/4 h-auto">
-        <Image src={Img} alt="Img" />
+      <div className="lg:w-2/4 lg:h-screen">
+        {/* <Image src={Img} alt="Img" /> */}
+        <Map />
+        
       </div>
     </div>
   );
