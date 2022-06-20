@@ -10,7 +10,7 @@ const contact = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-center pt-10 lg:flex-row">
+    <div className="flex flex-col items-start justify-center mt-10 pt-10 lg:flex-row">
       <div className="px-20 lg:w-2/4">
         <h2 className="font-bold mb-4 text-5xl text-indigo-600">
           Contact Us

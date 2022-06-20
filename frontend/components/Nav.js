@@ -1,9 +1,8 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import Logo from "../public/logo.png"
-import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -17,7 +16,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Nav() {
+export default function Nav({setOpen}) {
+
+
+  const toggleCartHandler = () => {
+    setOpen(!open);
+  }
 
   const clickHandler = () => {
 
@@ -42,7 +46,7 @@ export default function Nav() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <Link href='/'><Image src={Logo} alt="logo" width={55} height={40} /></Link>
+                  <button href='/'><Image src={Logo} alt="logo" width={55} height={40} /></button>
                 </div>
 
                 <div className="hidden sm:block sm:ml-6">
@@ -65,11 +69,11 @@ export default function Nav() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Link href='/cart'
+                <button onClick={toggleCartHandler}
                   className="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
                   <Image src='/cart.svg' alt='Shopping Cart' width={45} height={30} />
-                </Link>
+                </button>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">

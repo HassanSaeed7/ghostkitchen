@@ -19,6 +19,11 @@ module.exports = {
       gridTemplateRows: {
         '[auto,auto,1fr]': 'auto auto 1fr',
       },
+      screens: {
+        'low': {'raw': '(min-height: 600px)'},
+        'mid': {'raw': '(min-height: 700px)'},
+        'tall': { 'raw': '(min-height: 800px)' },
+      },
     },
   },
   plugins: [

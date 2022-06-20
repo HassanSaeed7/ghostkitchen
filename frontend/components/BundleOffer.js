@@ -18,7 +18,11 @@ const features = [
             <p className="mt-4 text-gray-500">
             Try Our Newcomer CBD Bundles Today. An assortment of Premium CBD Products Delivered to Your Door.
             </p>
-            <p className='mt-4 text-xl font-bold'>$85</p>
+            <div className="flex items-center mt-4 gap-2">
+               <p className='text-2xl font-bold'>$99</p> 
+               <p className="text-sm">Includes Free Shipping</p>
+            </div>
+           
 
             <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
               {features.map((feature) => (
@@ -52,7 +56,7 @@ const features = [
             />
           </div>
         </div>
-        <div className='pt-5 text-right m-auto max-w-md md:max-w-lg lg:max-w-5xl '>
+        <div className='pt-5 text-center m-auto max-w-md md:max-w-lg lg:max-w-5xl lg:text-right'>
             <Link href='/shop'><a className='font-bold underline text-white px-5 py-4 rounded-lg bg-indigo-600 hover:bg-indigo-500'>Add To Cart</a></Link>
         </div>
       </div>

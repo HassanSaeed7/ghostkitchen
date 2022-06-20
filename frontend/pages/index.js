@@ -4,6 +4,7 @@ import InfoContainer from "../components/InfoContainer"
 import Featured from '../components/Featured'
 import Hero from '../components/Hero'
 import Card from '../components/Card'
+import Cart from '../components/Cart'
 
 
 export default function Home() {
@@ -22,6 +23,8 @@ export default function Home() {
     <InfoContainer />
     <BundleOffer />
     <Card />
+
+    <Cart />
 
 
 
