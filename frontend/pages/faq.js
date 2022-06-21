@@ -1,98 +1,58 @@
-import React from 'react'
+import React from "react";
 
 const faq = () => {
   return (
-    <div className='min-h-screen flex justify-center items-center'>
 
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-xs" >
-  <div className="accordion-item border-t-0 border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
-    <h2 className="accordion-header mb-0" id="flush-headingOne">
-      <button className="accordion-button
-    relative
-    flex
-    items-center
-    w-full
-    py-4
-    px-5
-    text-base text-gray-800 text-left
-    bg-white
-    border-0
-    focus:outline-none" type="button"
-        aria-expanded="false" aria-controls="flush-collapseOne">
-        What is CBD?
-      </button>
-    </h2>
-    <div id="flush-collapseOne" className="accordion-collapse border-0 collapse show"
-      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div className="accordion-body py-4 px-5">
-        
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercise nulla pariatur et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercise nulla pariatur et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-        
-        </div>
+    <div className="min-h-screen flex flex-col justify-center items-center">
+      
+    <h1 className="text-5xl font-bold text-indigo-600 mt-20">Frequently Asked Questions</h1>
+
+    
+  <div id="accordion-collapse" data-accordion="collapse" className='max-w-screen-xl m-auto py-20'>
+  <h2 id="accordion-collapse-heading-1">
+    <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-left rounded-t-xl border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+      <span>What is CBD?</span>
+      <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+  </h2>
+  <div id="accordion-collapse-body-1" class="" aria-labelledby="accordion-collapse-heading-1">
+    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+      <p class="mb-2 text-gray-500 dark:text-gray-400">blahblah</p>
     </div>
   </div>
-  <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
-    <h2 className="accordion-header mb-0" id="flush-headingTwo">
-      <button className="accordion-button
-    collapsed
-    relative
-    flex
-    items-center
-    w-full
-    py-4
-    px-5
-    text-base text-gray-800 text-left
-    bg-white
-    border-0
-    rounded-none
-    transition
-    focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-        aria-expanded="false" aria-controls="flush-collapseTwo">
-        Accordion Item #2
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" className="accordion-collapse border-0 collapse" aria-labelledby="flush-headingTwo"
-      data-bs-parent="#accordionFlushExample">
-      <div className="accordion-body py-4 px-5">Placeholder content for this accordion, which is intended to
-        demonstrate
-        the <code>.accordion-flush</code> className. This is the second item's accordion body. Let's imagine this
-        being
-        filled with some actual content.</div>
+  <h2 id="accordion-collapse-heading-2">
+    <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+      <span>Is there a Figma file available?</span>
+      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+  </h2>
+  <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+      <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+      <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
     </div>
   </div>
-  <div className="accordion-item border-l-0 border-r-0 border-b-0 rounded-none bg-white border border-gray-200">
-    <h2 className="accordion-header mb-0" id="flush-headingThree">
-      <button className="accordion-button
-    collapsed
-    relative
-    flex
-    items-center
-    w-full
-    py-4
-    px-5
-    text-base text-gray-800 text-left
-    bg-white
-    border-0
-    rounded-none
-    transition
-    focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-        aria-expanded="false" aria-controls="flush-collapseThree">
-        Accordion Item #3
-      </button>
-    </h2>
-    <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-      data-bs-parent="#accordionFlushExample">
-      <div className="accordion-body py-4 px-5">Placeholder content for this accordion, which is intended to
-        demonstrate
-        the <code>.accordion-flush</code> className. This is the third item's accordion body. Nothing more exciting
-        happening here in terms of content, but just filling up the space to make it look, at least at first
-        glance,
-        a bit more representative of how this would look in a real-world application.</div>
+  <h2 id="accordion-collapse-heading-3">
+    <button type="button" class="flex justify-between items-center p-5 w-full font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+      <span>What are the differences between Flowbite and Tailwind UI?</span>
+      <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+  </h2>
+  <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+      <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
+      <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
+      <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+      <ul class="pl-5 list-disc text-gray-500 dark:text-gray-400">
+        <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
+        <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+      </ul>
     </div>
   </div>
 </div>
-    </div>
-  )
-}
+</div>
 
-export default faq
+  );
+};
+
+export default faq;

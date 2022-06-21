@@ -107,10 +107,10 @@ const Shop = ({products}) => {
                   src={urlFor(product.image[0].asset._ref)}
                   alt="product image"
                   className="w-full h-full object-center object-cover group-hover:opacity-75"
-                />Error: A required parameter (slug) was not provided as a string in getStaticPaths for /product/[slug]
+                />
               </div>
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
+              <h3 className="mt-4 text-md text-gray-700">{product.name}</h3>
+              <p className="mt-1 text-md font-medium text-gray-900">${product.price}</p>
               </div>
               
             </Link>
