@@ -69,11 +69,12 @@ export default function Nav({setOpen}) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button onClick={toggleCartHandler}
+                <a href='/cart' 
                   className="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
+                
                   <Image src='/cart.svg' alt='Shopping Cart' width={45} height={30} />
-                </button>
+                </a>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">

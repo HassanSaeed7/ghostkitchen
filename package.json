@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/HassanSaeed7/Storefront/issues"
   },
-  "homepage": "https://github.com/HassanSaeed7/Storefront#readme"
+  "homepage": "https://github.com/HassanSaeed7/Storefront#readme",
+  "dependencies": {
+    "@sanity/image-url": "^1.0.1"
+  }
 }
