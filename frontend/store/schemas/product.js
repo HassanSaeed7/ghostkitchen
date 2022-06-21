@@ -17,6 +17,17 @@ export default {
             title: 'Name',
             type: 'string',
         },
+        {
+            name: 'options',
+            title: 'Options', 
+            type: 'array',
+            of: [{type: 'string'}],
+        },
+        { 
+            name: 'description', 
+            title: 'Description', 
+            type: 'string'
+        },
         { 
             name: 'slug', 
             title: 'Slug', 
@@ -35,6 +46,12 @@ export default {
             name: 'details', 
             title: 'Details', 
             type: 'string',
+        },
+        { 
+            name: 'highlights', 
+            title: 'Highlights', 
+            type: 'array',
+            of: [{type: 'string'}],
         }
 
     ]
