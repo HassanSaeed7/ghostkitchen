@@ -18,7 +18,7 @@ const Footer = () => {
     }
 
   return (
-    <div className="bg-gray-800 min-h-screen text-white grid items-end">
+    <div className="min-h-screen bg-gray-800 text-white grid items-end">
         <div className="m-auto divide-y divide-stone-600 pt-20 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
 
 

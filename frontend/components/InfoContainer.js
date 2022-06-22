@@ -32,13 +32,13 @@ const features = [
 
 export default function InfoContainer() {
   return (
-    <div className=" my-20 py-12 bg-[#00d5bf] min-h-half grid items-center">
+    <div className="text-white my-20 py-12 bg-[#00d5bf] min-h-half grid items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-xs">
         <div className="lg:text-center">
-          <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
             Your Trusted CBD Wholesaler
           </h3>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+          <p className="mt-4 max-w-2xl text-xl lg:mx-auto">
             An assortment of Premium CBD Products available for retail and wholesale.
           </p>
         </div>
@@ -51,9 +51,9 @@ export default function InfoContainer() {
                   <div className="absolute flex items-center justify-center h-12 w-12 text-white">
                     <Image src={feature.src} alt='idk' width='50' height='50'/>
                   </div>
-                  <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
+                  <p className="ml-16 text-xl leading-6 font-medium">{feature.name}Includes</p>
                 </dt>
-                <dd className="mt-2 ml-16 text-base text-gray-500">{feature.description}</dd>
+                <dd className="mt-2 ml-16 text-base text-lg">{feature.description}</dd>
               </div>
             ))}
           </dl>

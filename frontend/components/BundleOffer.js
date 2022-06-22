@@ -20,7 +20,7 @@ const features = [
             </p>
             <div className="flex items-center mt-4 gap-2">
                <p className='text-2xl font-bold'>$99</p> 
-               <p className="text-sm">Includes Free Shipping</p>
+               <p className="text-sm italic">+ Free Shipping</p>
             </div>
            
 
