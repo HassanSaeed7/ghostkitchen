@@ -31,6 +31,9 @@ const features = [
                   <dd className="mt-2 text-sm text-gray-500">{feature.description}</dd>
                 </div>
               ))}
+               <div className='pt-5'>
+            <Link href='/shop'><a className='font-bold underline text-white px-5 py-4 rounded-lg bg-indigo-600 hover:bg-indigo-500'>Add To Cart</a></Link>
+        </div>
             </dl>
           </div>
           <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
@@ -56,9 +59,7 @@ const features = [
             />
           </div>
         </div>
-        <div className='pt-5 text-center m-auto max-w-md md:max-w-lg lg:max-w-5xl lg:text-right'>
-            <Link href='/shop'><a className='font-bold underline text-white px-5 py-4 rounded-lg bg-indigo-600 hover:bg-indigo-500'>Add To Cart</a></Link>
-        </div>
+       
       </div>
     )
   }

@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import Card from '../components/Card'
 import Banner from '../components/Banner'
 import {sanityClient} from '../lib/sanity.server'
+import Faq from '../components/Faq'
 
 const Home = ({ product, banner }) => {
   return (
@@ -24,7 +25,8 @@ const Home = ({ product, banner }) => {
     
     <BundleOffer />
     <Banner footerBanner={banner && banner[0]} product={product} />    
-      </main>
+    <Faq />
+    </main>
 
     </div>
   )
