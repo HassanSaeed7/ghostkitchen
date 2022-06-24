@@ -25,7 +25,8 @@ const Banner = ({
   
   return (
     <div
-      className="py-10 px-14
+      className="py-10 
+    px-14
     bg-[#00d5bf]
     rounded-lg
     relative
