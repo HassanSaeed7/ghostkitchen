@@ -1,8 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import Logo from "../public/logo.png"
+import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -16,22 +17,26 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Nav({setOpen}) {
-
-
-  const toggleCartHandler = () => {
-    setOpen(!open);
-  }
+export default function Nav() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [openLoginWindow, setOpenLoginWindow] = useState(false)
 
   const clickHandler = () => {
 
+  }
+
+  const loginWindowHandler = () => {
+    setOpenLoginWindow(!openLoginWindow)
+  }
+  
+  const loginHandler = () => {
   }
 
   return (
     <Disclosure as="nav" className="w-full fixed top-0 z-50 bg-white">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -77,7 +82,7 @@ export default function Nav({setOpen}) {
                 </a>
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="ml-3 relative">
+                {isLoggedIn ? (<Menu as="div" className="ml-3 relative">
                   <div>
                     <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
@@ -126,7 +131,26 @@ export default function Nav({setOpen}) {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>
+                </Menu>)
+                : <div className='flex gap-5'>
+                  <a href='/register'>Register</a>
+                  <button onClick={loginWindowHandler}>Login</button>
+                  </div>}
+
+              {openLoginWindow && (<div className="absolute top-3/4 left-3/4">
+                <form className="flex gap-2 justify-center items-center p-5 border-1 border bg-white rounded-lg shadow-inner">
+                  <div>
+
+                  <label for="email">Email</label>
+                  <input type="text" className='outline outline-1 rounded-sm' name="email" id='email'></input>
+                  </div>
+                  <div>
+                  <label for="password">Password</label>
+                  <input type="password" className='outline outline-1 rounded-sm' name="password" id='password'></input>
+                  </div>
+                  <button type='submit' className='bg-indigo-600 py-2 px-3 rounded-lg text-white' onClick={loginHandler}>Login</button>
+                </form>
+              </div>)}
               </div>
             </div>
           </div>

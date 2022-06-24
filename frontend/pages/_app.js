@@ -12,9 +12,7 @@ function MyApp({ Component, pageProps }) {
     <Nav 
     
     />
-    <Cart 
-        
-      />
+    {/* <Cart /> */}
     <Component {...pageProps} />
     <Footer />
     </>

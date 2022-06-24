@@ -19,12 +19,12 @@ const Faq = () => {
   <div className=''>
 
     <h2 className=''>
-    <button type="button" onClick={clickHandler} className="flex justify-between items-center p-5 w-screen max-w-screen-lg m-auto font-medium text-left border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 text-gray-900" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+    <button type="button" onClick={clickHandler} className="flex justify-between items-center p-5 w-screen max-w-screen-lg m-auto font-medium text-left border-b-2 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100 text-gray-900" aria-expanded="true" aria-controls="accordion-collapse-body-1">
       <span>{faq.question}</span>
     </button>
   </h2>
   {open && (<div className="" aria-labelledby="accordion-collapse-heading-1">
-    <div className="p-5 border border-b-0 border-gray-200 w-screen max-w-screen-lg m-auto">
+    <div className="p-5 border-b-1 border-gray-200 w-screen max-w-screen-lg m-auto">
       <p className="mb-2 text-gray-500">{faq.answer}</p>
     </div>
   </div>)}
