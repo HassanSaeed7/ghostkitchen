@@ -30,23 +30,23 @@ const Banner = ({
     bg-[#00d5bf]
     rounded-lg
     relative
-    h-98 
     text-white
     w-full
     my-24
     max-w-screen-xl
-    m-auto" 
+    m-auto
+    h-98" 
     >
       <div className="flex justify-around">
         <div className="left">
           <p>{discount}</p>
-          <h3 className='font-bold text-8xl margin-left: 25px;'>{largeText1}</h3>
-          <h3 className='font-bold text-8xl margin-left: 25px;'>{largeText2}</h3>
-          <p className='m-5'>{saleTime}</p>
+          <h3 className='font-bold text-5xl ml-2 md:text-8xl md:ml-5'>{largeText1}</h3>
+          <h3 className='font-bold text-5xl ml-2 md:text-8xl md:ml-5'>{largeText2}</h3>
+          <p className='m-3 md:m-5'>{saleTime}</p>
         </div>
         <div className="leading-snug right">
           <p className='text-lg'>{smallText}</p>
-          <h3 className='font-bold text-6xl'>{midText}</h3>
+          <h3 className='font-bold text-3xl md:text-6xl'>{midText}</h3>
           <p className='text-lg'>{desc}</p>
           <Link href={`/product/${product}`}>
             <button
@@ -68,10 +68,14 @@ const Banner = ({
 
         <img
           src={urlFor(image)}
-          className="absolute
-          -top-[55%]
-          left-[35%]
-          w-[30%]"
+          className="hidden
+          lg:absolute
+          lg:block
+          lg:-top-[35%]
+          lg:left-[35%]
+          lg:w-[30%]
+          md: h-auto
+          md: w-full"
         />
       </div>
     </div>
