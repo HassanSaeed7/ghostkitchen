@@ -130,4 +130,14 @@ export const getServerSideProps = async () => {
   }
 }
 
+// export const getStaticProps = async () => {
+//   const query = await fetch('http://localhost:1337/api/products')
+//   const products = await query.json()
+//   return {
+//     props: {
+//       products
+//     }
+//   }
+// }
+
 export default Shop;
