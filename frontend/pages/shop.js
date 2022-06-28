@@ -121,6 +121,7 @@ const Shop = ({products}) => {
   )
 }
 
+//sanity
 export const getServerSideProps = async () => { 
   const query = '*[_type == "product"]'
   const products = await sanityClient.fetch(query)
@@ -130,6 +131,7 @@ export const getServerSideProps = async () => {
   }
 }
 
+//strapi 
 // export const getStaticProps = async () => {
 //   const query = await fetch('http://localhost:1337/api/products')
 //   const products = await query.json()
