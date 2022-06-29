@@ -7,9 +7,10 @@ const cartItems = [
 ]
 
 const Cart = () => {
+  
 
 
-  const getSum = (total, num) => { cbd
+  const getSum = (total, num) => { 
 
     return total + num 
   }

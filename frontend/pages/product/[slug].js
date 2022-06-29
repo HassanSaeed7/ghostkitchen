@@ -1,86 +1,35 @@
-import { useState } from 'react'
-import { StarIcon } from '@heroicons/react/solid'
-import { RadioGroup } from '@headlessui/react'
-import { sanityClient } from '../../lib/sanity.server'
-import imageUrlBuilder from '@sanity/image-url'
+import { useState } from 'react';
+import { StarIcon } from '@heroicons/react/solid';
+import { RadioGroup } from '@headlessui/react';
+import { sanityClient } from '../../lib/sanity.server';
+import imageUrlBuilder from '@sanity/image-url';
+import { useStateContext } from '../../context/StateContext';
 
 
 const breadcrumbs = [
       { id: 1, name: 'Home', href: '/' },
       { id: 2, name: 'Shop', href: '/shop' },
-    ]
+    ];
 
-// const product = {
-//   name: 'CBD Vape',
-//   price: '$92',
-//   href: '#',
-//   breadcrumbs: [
-//     { id: 1, name: 'Home', href: '/' },
-//     { id: 2, name: 'Shop', href: '/shop' },
-//   ],
-//   images: [
-//     {
-//       src: '/cbd.jpg',
-//       alt: 'Tincture.',
-//     },
-//     {
-//       src: '/cbd0.jpg',
-//       alt: 'Tincture.',
-//     },
-//     {
-//       src: '/cbd1.jpg',
-//       alt: 'Tincture.',
-//     },
-//     {
-//       src: '/oil.jpg',
-//       alt: 'Tincture.',
-//     },
-//   ],
-//   colors: [
-//     { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
-//     { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
-//     { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
-//   ],
-//   sizes: [
-//     { name: '50mg', inStock: true },
-//     { name: '100mg', inStock: true },
-//     { name: '200mg', inStock: true },
-//     { name: '300mg', inStock: true },
-//   ],
-//   description:
-//     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-//   highlights: [
-//     'Lab Tested',
-//     'Quality Assured',
-//     '100% Natural Ingredients',
-//     'Processed in Southern California',
-//   ],
-//   details:
-//     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-// }
-
-const reviews = { href: '#', average: 4, totalCount: 117 }
+const reviews = { href: '#', average: 4, totalCount: 117 };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
-}
-
+};
 
 
 const Product = ({products, product}) => {
-  const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState(product.options[2])
 
-  const builder = imageUrlBuilder(sanityClient)
+  const { quantity, incrementQuantity, decrementQuantity, addToCartHandler } = useStateContext();
+  const [selectedSize, setSelectedSize] = useState(product.options[2]);
+
+  const builder = imageUrlBuilder(sanityClient);
 
   function urlFor(source) {
     return builder.image(source)
-  }
+  };
 
-  const addToCartHandler = (event) => {
-    event.preventDefault()
-
-  }
+  
 
   return (
     <>
@@ -237,7 +186,13 @@ const Product = ({products, product}) => {
 
 
               <label for='quantity'>Quantity</label>
-              <input className='leading-loose w-full text-center' id='quantity' name='quantity' type='number' value={quantity} onChange={(event)=> setQuantity(event.target.value)} min="1" max="5"></input>
+              <div class='flex'>
+              <button className='mr-1 px-10 flex-initial border-2' onClick={decrementQuantity}>-</button>
+              <span className='leading-loose text-center flex-auto border-2 border-gray-200' id='quantity' name='quantity'>{quantity}</span>
+              <button className='ml-1 px-10 flex-initial border-2' onClick={incrementQuantity}>+</button>
+              </div>
+            
+              
               <button onClick={addToCartHandler} type='submit' className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                 Add to Cart ({'$' + quantity * product.price})
               </button>
@@ -289,7 +244,7 @@ const Product = ({products, product}) => {
       </div>
     </>
   )
-}
+};
 
 
 

@@ -1,8 +1,8 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
+import { useStateContext } from '../context/StateContext'
 
 const products = [
   {
@@ -30,25 +30,15 @@ const products = [
 ]
 
 export default function Cart() {
-  const [open, setOpen] = useState(false)
+  const { showCart, toggleCartHandler } = useStateContext();
 
-  const cartToggleHandler = () => {
-    setOpen(true)
-  }
+ 
 
 
   return (
     <>
-
-    {open ? null :
-    <button onClick={ cartToggleHandler } className='fixed top-20 right-0 bg-white rounded-lg'>
-       <Image src='/cart.svg' width={100} height={50} />
-       <p>Cart</p>
-    </button>
-    }
-   
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={showCart} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={toggleCartHandler}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
