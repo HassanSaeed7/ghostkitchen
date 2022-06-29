@@ -25,7 +25,6 @@ const Home = ({ product, banner }) => {
     
     <BundleOffer />
     <Banner footerBanner={banner && banner[0]} product={product} />    
-    <Faq />
     </main>
 
     </div>
