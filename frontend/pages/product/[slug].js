@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useStateContext } from '../../context/StateContext';
 import { StarIcon } from '@heroicons/react/solid';
 import { RadioGroup } from '@headlessui/react';
 import { sanityClient } from '../../lib/sanity.server';
 import imageUrlBuilder from '@sanity/image-url';
-import { useStateContext } from '../../context/StateContext';
-
+import Link from "next/link"
 
 const breadcrumbs = [
       { id: 1, name: 'Home', href: '/' },
@@ -21,10 +21,10 @@ function classNames(...classes) {
 const Product = ({products, product}) => {
 
   const { quantity, incrementQuantity, decrementQuantity, addToCartHandler } = useStateContext();
-  const [selectedSize, setSelectedSize] = useState(product.options[2]);
+  const [selectedSize, setSelectedSize] = useState(product.options[0]);
+
 
   const builder = imageUrlBuilder(sanityClient);
-
   function urlFor(source) {
     return builder.image(source)
   };
@@ -44,9 +44,11 @@ const Product = ({products, product}) => {
             {breadcrumbs.map((breadcrumb) => (
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
-                  <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
-                    {breadcrumb.name}
-                  </a>
+                  <Link href={breadcrumb.href}>
+                    <a className="mr-2 text-sm font-medium text-gray-900">
+                      {breadcrumb.name}
+                    </a> 
+                  </Link>
                   <svg
                     width={16}
                     height={20}
@@ -143,7 +145,7 @@ const Product = ({products, product}) => {
                               ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                               : 'bg-gray-50 text-gray-200 cursor-not-allowed',
                             active ? 'ring-2 ring-indigo-500' : '',
-                            'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
+                            'group relative border rounded-md py-3 px-4 whitespace-nowrap flex items-center justify-center text-sm font-medium hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
                           )
                         }
                       >
@@ -245,11 +247,6 @@ const Product = ({products, product}) => {
     </>
   )
 };
-
-
-
-
-
 
 
 

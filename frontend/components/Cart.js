@@ -5,16 +5,23 @@ import { XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import {sanityClient} from '../lib/sanity.server'
 import imageUrlBuilder from '@sanity/image-url'
+import { useRouter } from 'next/router'
 
 
 
-export default function Cart({products}) {
-  const { showCart, setShowCart, cartItems } = useStateContext();
-
+export default function Cart() {
+  const { showCart, setShowCart, cartItems, totalPrice, toggleCartItemsQuantity, onCartItemRemoval } = useStateContext();
+  const router = useRouter()
   const builder = imageUrlBuilder(sanityClient)
 
   function urlFor(source) {
     return builder.image(source)
+  }
+
+
+  const continueShoppingHandler = () => {
+    setShowCart(false);
+    router.push('/shop');
   }
 
 
@@ -70,29 +77,34 @@ export default function Cart({products}) {
                             {cartItems.length >= 1 ? cartItems.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
+                                  
+                                  {product && <img
                                     src={urlFor(product.image[0].asset._ref)}
-                                    alt={product.imageAlt}
+                                    alt='Product Image'
                                     className="h-full w-full object-cover object-center"
-                                  />
+                                  />}
                                 </div>
 
                                 <div className="ml-4 flex flex-1 flex-col">
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.href}> {product.name} </a>
+                                      {product.name}
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">${product.price}</p>
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty {product.quantity}</p>
-
+                                    <div class='flex w-full mr-2'>
+                                    <button className='mr-1 flex-1 border-2' onClick={ () => toggleCartItemsQuantity(product._id, 'dec') }>-</button>
+                                    <span className='leading-loose text-center flex-auto border-2 border-gray-200' id='quantity' name='quantity'>{product.quantity}</span>
+                                    <button className='ml-1 flex-1 border-2' onClick={ () => toggleCartItemsQuantity(product._id, 'inc') }>+</button>
+                                    </div>
                                     <div className="flex">
                                       <button
                                         type="button"
+                                        onClick={ () => onCartItemRemoval(product)}
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
                                       >
                                         Remove
@@ -102,7 +114,16 @@ export default function Cart({products}) {
                                 </div>
                               </li>
                             )) 
-                            : <h3 className='min-h-half flex items-center justify-center text-gray-900'>No items in cart.</h3>
+                            : <div className='min-h-half flex flex-col items-center justify-center gap-5 text-gray-900'>
+                              <h3 >No items in cart.</h3>
+                              <button
+                                type="button"
+                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                onClick={continueShoppingHandler}
+                                >
+                                  Shop Now<span aria-hidden="true"> &rarr;</span>
+                              </button>
+                              </div>
                             }
 
                           </ul>
@@ -110,10 +131,10 @@ export default function Cart({products}) {
                       </div>
                     </div>
 
-                    <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                    {cartItems.length > 0 && <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <p>${totalPrice}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
@@ -130,13 +151,13 @@ export default function Cart({products}) {
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={continueShoppingHandler}
                           >
                             Continue Shopping<span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>
                       </div>
-                    </div>
+                    </div> }
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

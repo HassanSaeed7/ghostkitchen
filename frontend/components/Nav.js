@@ -19,21 +19,19 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [openLoginWindow, setOpenLoginWindow] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [openLoginWindow, setOpenLoginWindow] = useState(false);
+  const { showCart, setShowCart, totalQuantity } = useStateContext();
 
-  const { showCart, setShowCart, totalQuantity } = useStateContext()
 
-  const clickHandler = () => {
-
-  }
 
   const loginWindowHandler = () => {
     setOpenLoginWindow(!openLoginWindow)
-  }
+  };
   
   const loginHandler = () => {
-  }
+
+  };
 
   return (
     <Disclosure as="nav" className="w-full fixed top-0 z-50 bg-white">
@@ -52,43 +50,50 @@ export default function Nav() {
                   )}
                 </Disclosure.Button>
               </div>
+
+
+
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <button href='/'><Image src={Logo} alt="logo" width={55} height={40} /></button>
+                  <button href='/'><Image src={Logo} alt="logo" width={55} height={35} /></button>
                 </div>
 
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
-                        onClick={clickHandler}
-                        className={classNames(
+                        
+                      >
+                        <a className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
+                        aria-current={item.current ? 'page' : undefined}>
+                          {item.name}
+                        </a>
+                        
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex justify-center items-center gap-2 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+              <div className="absolute inset-y-0 right-0 flex gap-2 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                
                 <button onClick={ () => setShowCart(!showCart) }
-                  className="relative p-1 rounded-full text-gray-400 hover:text-white"
+                  className="relative rounded-full text-gray-400 hover:text-white"
                 >
                 
-                  <Image src='/cart.svg' alt='Shopping Cart' width={45} height={30} />
-                  <span className="bg-red-800 rounded-[50%] w-6 h-6 p-3 flex items-center justify-center absolute -top-1 -left-1 text-white">{totalQuantity}</span>
+                  <Image src='/cart.svg' alt='Shopping Cart' width={50} height={35} />
+                  <span className="bg-red-800 rounded-[50%] w-3 h-3 p-3 flex items-center justify-center absolute -top-1 -left-1 text-white">{totalQuantity}</span>
                 </button>
 
                 {/* Profile dropdown */}
                 {isLoggedIn ? (<Menu as="div" className="ml-3 relative">
                   <div>
-                    <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <Menu.Button className="flex text-sm rounded-lg">
                       <span className="sr-only">Open user menu</span>
                       HASSAN SAEED
                     </Menu.Button>
@@ -105,22 +110,22 @@ export default function Nav() {
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 z-10 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
+                            <a className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
                             Your Profile
-                          </a>
+                            </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
+                          <Link href="#">
+                            <a className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
+                              Settings
+                            </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
@@ -135,26 +140,28 @@ export default function Nav() {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>)
-                : <div className='flex gap-5'>
-                  <a href='/register'>Register</a>
-                  <button onClick={loginWindowHandler}>Login</button>
-                  </div>}
-
-              {openLoginWindow && (<div className="absolute top-3/4 left-3/4">
-                <form className="flex gap-2 justify-center items-center p-5 border-1 border bg-white rounded-lg shadow-inner">
-                  <div>
-
-                  <label for="email">Email</label>
-                  <input type="text" className='outline outline-1 rounded-sm' name="email" id='email'></input>
+                </Menu>
+                )
+                
+                : 
+                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                  <Link href='/register'>
+                    <a 
+                    className='text-black h-fit px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white '>
+                          Register
+                    </a>
+                  </Link>
+                  <Link href='/login'>
+                  <a
+                  className='text-black h-fit px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'
+                  >
+                    Login
+                    </a>
+                  </Link>
                   </div>
-                  <div>
-                  <label for="password">Password</label>
-                  <input type="password" className='outline outline-1 rounded-sm' name="password" id='password'></input>
-                  </div>
-                  <button type='submit' className='bg-indigo-600 py-2 px-3 rounded-lg text-white' onClick={loginHandler}>Login</button>
-                </form>
-              </div>)}
+                }
+
+              
               </div>
             </div>
           </div>
@@ -170,7 +177,6 @@ export default function Nav() {
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
