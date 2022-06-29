@@ -22,7 +22,7 @@ export default function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [openLoginWindow, setOpenLoginWindow] = useState(false)
 
-  const { toggleCartHandler } = useStateContext()
+  const { showCart, setShowCart, totalQuantity } = useStateContext()
 
   const clickHandler = () => {
 
@@ -76,12 +76,13 @@ export default function Nav() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button onClick={ toggleCartHandler }
-                  className="p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              <div className="absolute inset-y-0 right-0 flex justify-center items-center gap-2 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button onClick={ () => setShowCart(!showCart) }
+                  className="relative p-1 rounded-full text-gray-400 hover:text-white"
                 >
                 
                   <Image src='/cart.svg' alt='Shopping Cart' width={45} height={30} />
+                  <span className="bg-red-800 rounded-[50%] w-6 h-6 p-3 flex items-center justify-center absolute -top-1 -left-1 text-white">{totalQuantity}</span>
                 </button>
 
                 {/* Profile dropdown */}

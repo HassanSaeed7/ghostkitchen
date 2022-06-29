@@ -193,7 +193,7 @@ const Product = ({products, product}) => {
               </div>
             
               
-              <button onClick={addToCartHandler} type='submit' className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+              <button onClick={() => addToCartHandler(product, quantity) } type='button' className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                 Add to Cart ({'$' + quantity * product.price})
               </button>
             </form>

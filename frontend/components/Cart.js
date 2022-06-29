@@ -1,44 +1,27 @@
+import { useStateContext } from '../context/StateContext'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
-import { useStateContext } from '../context/StateContext'
+import {sanityClient} from '../lib/sanity.server'
+import imageUrlBuilder from '@sanity/image-url'
 
-const products = [
-  {
-    id: 1,
-    name: 'Throwback Hip Bag',
-    href: '#',
-    color: 'Salmon',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-  },
-  // More products...
-]
 
-export default function Cart() {
-  const { showCart, toggleCartHandler } = useStateContext();
 
- 
+export default function Cart({products}) {
+  const { showCart, setShowCart, cartItems } = useStateContext();
+
+  const builder = imageUrlBuilder(sanityClient)
+
+  function urlFor(source) {
+    return builder.image(source)
+  }
 
 
   return (
     <>
     <Transition.Root show={showCart} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={toggleCartHandler}>
+      <Dialog as="div" className="relative z-10" onClose={()=> setShowCart(false)}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -83,11 +66,12 @@ export default function Cart() {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
+
+                            {cartItems.length >= 1 ? cartItems.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={product.imageSrc}
+                                    src={urlFor(product.image[0].asset._ref)}
                                     alt={product.imageAlt}
                                     className="h-full w-full object-cover object-center"
                                   />
@@ -117,7 +101,10 @@ export default function Cart() {
                                   </div>
                                 </div>
                               </li>
-                            ))}
+                            )) 
+                            : <h3 className='min-h-half flex items-center justify-center text-gray-900'>No items in cart.</h3>
+                            }
+
                           </ul>
                         </div>
                       </div>

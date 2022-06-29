@@ -1,18 +1,16 @@
 import React, { createContext, useContext, useState, useEffect} from 'react';
-
+import toast from 'react-hot-toast';
 const Context = createContext();
 
 export const StateContext = ({children}) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState();
-    const [totalQuantity, setTotalQuantity] = useState();
+    const [totalQuantity, setTotalQuantity] = useState(0);
     const [quantity, setQuantity] = useState(1);
 
 
-    const toggleCartHandler = () => {
-        setShowCart(!showCart);
-    };
+    
 
     const incrementQuantity = (event) => {
         event.preventDefault();
@@ -30,9 +28,27 @@ export const StateContext = ({children}) => {
         })
     };
 
-    const addToCartHandler = (event, product, quantity) => {
-        event.preventDefault()
-    
+    const addToCartHandler = (product, quantity) => {
+        const checkProductsInCart = cartItems.find((item) => item._id === product._id);
+
+        setTotalPrice(prevTotalPrice => prevTotalPrice + product.price * quantity)
+        setTotalQuantity(prevTotalQuantity => prevTotalQuantity + quantity);
+
+        if (checkProductsInCart) {
+
+            const updatedCartItems = cartItems.map((item) => {
+                if (item._id === product._id) return {
+                    ...item, 
+                    quantity: item.quantity + quantity
+                }
+            })
+
+            setCartItems(updatedCartItems);
+        } else {
+            product.quantity = quantity;
+            setCartItems([...cartItems, {...product}]);
+        }
+        toast.success(`${quantity} ${product.name} added to the cart.`);
       };
     
     
@@ -41,11 +57,11 @@ export const StateContext = ({children}) => {
         <Context.Provider
         value={{
             showCart,
+            setShowCart,
             cartItems,
             totalPrice,
             totalQuantity,
             quantity,
-            toggleCartHandler,
             incrementQuantity,
             decrementQuantity,
             addToCartHandler
