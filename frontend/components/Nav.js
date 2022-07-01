@@ -55,7 +55,12 @@ export default function Nav() {
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <button href='/'><Image src={Logo} alt="logo" width={55} height={35} /></button>
+                    
+                  <Link href='/'>
+                    <a>
+                    <Image src={Logo} alt="logo" width={55} height={35} />
+                  </a>
+                  </Link>
                 </div>
 
                 <div className="hidden sm:block sm:ml-6">
@@ -147,7 +152,7 @@ export default function Nav() {
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                   <Link href='/register'>
                     <a 
-                    className='text-black h-fit px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white '>
+                    className='text-black h-fit px-3 py-2 rounded-md text-sm font-medium '>
                           Register
                     </a>
                   </Link>
