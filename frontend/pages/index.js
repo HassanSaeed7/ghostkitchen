@@ -7,6 +7,7 @@ import Card from '../components/Card'
 import Banner from '../components/Banner'
 import {sanityClient} from '../lib/sanity.server'
 import Faq from '../components/Faq'
+import Blurb from '../components/Blurb'
 
 const Home = ({ product, banner }) => {
   return (
@@ -24,7 +25,8 @@ const Home = ({ product, banner }) => {
     <InfoContainer />
     
     <BundleOffer />
-    <Banner footerBanner={banner && banner[0]} product={product} />    
+    <Banner footerBanner={banner && banner[0]} product={product} />  
+    <Blurb />  
     </main>
 
     </div>

@@ -1,4 +1,9 @@
-import React, { createContext, useContext, useState, useEffect} from 'react';
+import React, { 
+  createContext, 
+  useContext, 
+  useState, 
+  useEffect
+} from 'react';
 import toast from 'react-hot-toast';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
@@ -6,6 +11,15 @@ const Context = createContext();
 
 
 export const StateContext = ({children}) => {
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    reEnterPassword: '',
+    dob: '',
+    agree: false,
+  })
     const initialCart = [];
     const initialTotalQuantity = 0;
     const initialTotalPrice = 0;
@@ -14,6 +28,7 @@ export const StateContext = ({children}) => {
     const [totalPrice, setTotalPrice] = useLocalStorage("totalPrice", initialTotalPrice);
     const [totalQuantity, setTotalQuantity] = useLocalStorage("quantity", initialTotalQuantity);
     const [quantity, setQuantity] = useState(1);
+    const [isLoggedIn, setIsLoggedIn] = useLocalStorage(false);
     let foundProduct;
     let index;
 
@@ -24,7 +39,6 @@ export const StateContext = ({children}) => {
         prevQuantity + 1
         )
     };
-
 
     const decrementQuantity = (event)=> {
        event.preventDefault();
@@ -90,6 +104,10 @@ export const StateContext = ({children}) => {
         };
 
 
+
+
+       
+
         //persist cart items
         // useEffect(() => {
         // const cartData = JSON.parse(localStorage.getItem('cart'));
@@ -133,7 +151,11 @@ export const StateContext = ({children}) => {
             decrementQuantity,
             addToCartHandler,
             toggleCartItemsQuantity,
-            onCartItemRemoval
+            onCartItemRemoval,
+            isLoggedIn,
+            setIsLoggedIn,
+            user,
+            setUser
         }}>
             {children}
         </Context.Provider>

@@ -4,85 +4,6 @@ import {sanityClient} from '../lib/sanity.server'
 import imageUrlBuilder from '@sanity/image-url'
 
 
-
-
-// const products = [
-//   {
-//     id: 1,
-//     name: 'Tincture',
-//     href: `/product/1`,
-//     price: '$48',
-//     imageSrc: '/oil.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-//   },
-//   {
-//     id: 2,
-//     name: 'CBD Gummies',
-//     href: '/product/2',
-//     price: '$35',
-//     imageSrc: "/featured0.jpg",
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-//   },
-//   {
-//     id: 3,
-//     name: 'CBD Oil Capsules',
-//     href: '/product/3',
-//     price: '$89',
-//     imageSrc: '/pill.jpg',
-//     imageAlt: 'lorem ipsum dolor sit amet, consectetur adipiscing',
-//   },
-//   {
-//     id: 4,
-//     name: 'CBD Balm',
-//     href: '/product/4',
-//     price: '$35',
-//     imageSrc: '/balm.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-//   },
-//   {
-//     id: 5,
-//     name: 'Tincture',
-//     href: `/product/1`,
-//     price: '$48',
-//     imageSrc: '/oil.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing'
-//   },
-//   {
-//     id: 6,
-//     name: 'Tincture',
-//     href: `/product/1`,
-//     price: '$48',
-//     imageSrc: '/oil.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing'
-//   },
-//   {
-//     id: 7,
-//     name: 'Tincture',
-//     href: `/product/1`,
-//     price: '$48',
-//     imageSrc: '/oil.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing'
-//   },
-//   {
-//     id: 8,
-//     name: 'Tincture',
-//     href: `/product/1`,
-//     price: '$48',
-//     imageSrc: '/oil.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing'
-//   },
-//   {
-//     id: 9,
-//     name: 'Tincture',
-//     href: `/product/1`,
-//     price: '$48',
-//     imageSrc: '/oil.jpg',
-//     imageAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing'
-//   },
- 
-//   // More products...
-// ]
-
 const Shop = ({products}) => {
   const builder = imageUrlBuilder(sanityClient)
 
@@ -131,15 +52,5 @@ export const getServerSideProps = async () => {
   }
 }
 
-//strapi 
-// export const getStaticProps = async () => {
-//   const query = await fetch('http://localhost:1337/api/products')
-//   const products = await query.json()
-//   return {
-//     props: {
-//       products
-//     }
-//   }
-// }
 
 export default Shop;
