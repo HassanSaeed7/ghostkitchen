@@ -64,9 +64,11 @@ const Product = ({products, product}) => {
               </li>
             ))}
             <li className="text-sm">
-              <a href={product.slug.current} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+              <Link href={product.slug.current}>
+              <a aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
                 {product.name}
               </a>
+              </Link>
             </li>
           </ol>
         </nav>

@@ -18,8 +18,9 @@ const login = () => {
             setIsLoggedIn(true);
             router.push('/');
         } else {
-            toast.fail('Please try again.');
-            setIsLoggedIn(false);
+            setIsLoggedIn(false);            
+            toast.error('Wrong email or password. Please try again.');
+
         }
     };
 
