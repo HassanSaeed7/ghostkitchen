@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     <>
     <StateContext>
     <Toaster
-      position="top-center"
+      position="bottom-center"
       reverseOrder={false}
     />
     <Nav />

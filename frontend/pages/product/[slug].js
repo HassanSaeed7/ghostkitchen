@@ -8,7 +8,7 @@ import Link from "next/link"
 
 const breadcrumbs = [
       { id: 1, name: 'Home', href: '/' },
-      { id: 2, name: 'Shop', href: '/shop' },
+      { id: 2, name: 'Shop', href: '/order' },
     ];
 
 const reviews = { href: '#', average: 4, totalCount: 117 };
@@ -21,7 +21,6 @@ function classNames(...classes) {
 const Product = ({products, product}) => {
 
   const { quantity, incrementQuantity, decrementQuantity, addToCartHandler } = useStateContext();
-  const [selectedSize, setSelectedSize] = useState(product.options[0]);
 
 
   const builder = imageUrlBuilder(sanityClient);
@@ -128,63 +127,7 @@ const Product = ({products, product}) => {
             
             <form className='flex flex-col gap-10 mt-10'>
                     {/* Sizes */}
-                    <div className="mt-10">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm text-gray-900 font-medium">Options</h3>
-                </div>
-
-                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
-                  <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
-                  <div className="flex gap-4">
-                    {product.options.map((option) => (
-                      <RadioGroup.Option
-                        key={option}
-                        value={option}
-                        // disabled={!size.inStock}
-                        className={({ active }) =>
-                          classNames(
-                            option
-                              ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
-                              : 'bg-gray-50 text-gray-200 cursor-not-allowed',
-                            active ? 'ring-2 ring-indigo-500' : '',
-                            'group relative border rounded-md py-3 px-4 whitespace-nowrap flex items-center justify-center text-sm font-medium hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6'
-                          )
-                        }
-                      >
-                        {({ active, checked }) => (
-                          <>
-                            <RadioGroup.Label as="span">{option}</RadioGroup.Label>
-                            {option ? (
-                              <span
-                                className={classNames(
-                                  active ? 'border' : 'border-2',
-                                  checked ? 'border-indigo-500' : 'border-transparent',
-                                  'absolute -inset-px rounded-md pointer-events-none'
-                                )}
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <span
-                                aria-hidden="true"
-                                className="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
-                              >
-                                <svg
-                                  className="absolute inset-0 w-full h-full text-gray-200 stroke-2"
-                                  viewBox="0 0 100 100"
-                                  preserveAspectRatio="none"
-                                  stroke="currentColor"
-                                >
-                                  <line x1={0} y1={100} x2={100} y2={0} vectorEffect="non-scaling-stroke" />
-                                </svg>
-                              </span>
-                            )}
-                          </>
-                        )}
-                      </RadioGroup.Option>
-                    ))}
-                  </div>
-                </RadioGroup>
-              </div>
+                   
 
 
 

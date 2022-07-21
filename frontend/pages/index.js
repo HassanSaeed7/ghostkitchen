@@ -1,17 +1,11 @@
 import Head from 'next/head'
-import BundleOffer from "../components/BundleOffer"
-import InfoContainer from "../components/InfoContainer"
 import Featured from '../components/Featured'
 import Hero from '../components/Hero'
-import Card from '../components/Card'
-import Banner from '../components/Banner'
 import {sanityClient} from '../lib/sanity.server'
-import Faq from '../components/Faq'
-import Blurb from '../components/Blurb'
 
 const Home = ({ product, banner }) => {
   return (
-    <div className='mt-20'>
+    <div className='mt-16'>
       <Head>
         <title>Wholesale</title>
         <meta name="Home Page." content="ECommerce site created with NextJS." />
@@ -19,14 +13,9 @@ const Home = ({ product, banner }) => {
       </Head>
 
 
-      <main>
+    <main>
     <Hero />
     <Featured />
-    <InfoContainer />
-    
-    <BundleOffer />
-    <Banner footerBanner={banner && banner[0]} product={product} />  
-    <Blurb />  
     </main>
 
     </div>

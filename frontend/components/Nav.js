@@ -8,9 +8,8 @@ import { useStateContext } from '../context/StateContext'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Shop', href: '/shop', current: false },
+  { name: 'Order', href: '/order', current: false },
   { name: 'About', href: '/about', current: false },
-  { name: 'FAQ', href: '/faq', current: false },
   { name: 'Contact', href: '/contact', current: false },
 ]
 
@@ -19,7 +18,7 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
-  const { showCart, setShowCart, totalQuantity, logOutHandler, setIsLoggedIn, isLoggedIn } = useStateContext();
+  const { showCart, setShowCart, totalQuantity } = useStateContext();
 
 
 
@@ -29,6 +28,7 @@ export default function Nav() {
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative">
             <div className="relative flex items-center justify-between h-16">
+              
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -43,12 +43,13 @@ export default function Nav() {
 
 
 
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
                 <div className="flex-shrink-0 flex items-center">
                     
                   <Link href='/'>
-                    <a>
-                    <Image src={Logo} alt="logo" width={55} height={35} />
+                    <a className='flex items-center text-2xl font-bold'>
+                    Samosa House
+                    <Image src={Logo} alt="logo" width={50} height={50} />
                   </a>
                   </Link>
                 </div>
@@ -85,76 +86,7 @@ export default function Nav() {
                   <span className="bg-red-800 rounded-[50%] w-3 h-3 p-3 flex items-center justify-center absolute -top-1 -left-1 text-white">{totalQuantity}</span>
                 </button>
 
-                {/* Profile dropdown */}
-                {isLoggedIn ? (<Menu as="div" className="ml-3 relative">
-                  <div>
-                    <Menu.Button className="flex text-sm rounded-lg">
-                      <span className="sr-only">Open user menu</span>
-                      HASSAN SAEED
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 z-10 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/profile"
-                          >
-                            <a className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                            Your Profile
-                            </a>
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      {/* <Menu.Item>
-                        {({ active }) => (
-                          <Link href="#">
-                            <a className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              Settings
-                            </a>
-                          </Link>
-                        )}
-                      </Menu.Item> */}
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            onClick={()=> setIsLoggedIn(false)}
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 hover:cursor-pointer')}
-                          >
-                            Sign Out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-                )
-                
-                : 
-                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                  <Link href='/register'>
-                    <a 
-                    className='text-black h-fit px-3 py-2 rounded-md text-sm font-medium '>
-                          Register
-                    </a>
-                  </Link>
-                  <Link href='/login'>
-                  <a
-                  className='text-black h-fit px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'
-                  >
-                    Login
-                    </a>
-                  </Link>
-                  </div>
-                }
+    
 
               
               </div>

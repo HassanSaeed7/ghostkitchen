@@ -21,7 +21,7 @@ export default function Cart() {
 
   const continueShoppingHandler = () => {
     setShowCart(false);
-    router.push('/shop');
+    router.push('/order');
   }
 
 
@@ -57,7 +57,7 @@ export default function Cart() {
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                       <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-lg font-medium text-gray-900"> Shopping cart </Dialog.Title>
+                        <Dialog.Title className="text-lg font-medium text-gray-900"> Cart </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
                             type="button"
@@ -121,7 +121,7 @@ export default function Cart() {
                                 className="font-medium text-indigo-600 hover:text-indigo-500"
                                 onClick={continueShoppingHandler}
                                 >
-                                  Shop Now<span aria-hidden="true"> &rarr;</span>
+                                  Order Now<span aria-hidden="true"> &rarr;</span>
                               </button>
                               </div>
                             }
@@ -136,7 +136,7 @@ export default function Cart() {
                         <p>Subtotal</p>
                         <p>${totalPrice}</p>
                       </div>
-                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                      <p className="mt-0.5 text-sm text-gray-500">Taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <a
                           href="/checkout" //hook checkout window here
@@ -153,7 +153,7 @@ export default function Cart() {
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={continueShoppingHandler}
                           >
-                            Continue Shopping<span aria-hidden="true"> &rarr;</span>
+                            Add More Items<span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>
                       </div>
