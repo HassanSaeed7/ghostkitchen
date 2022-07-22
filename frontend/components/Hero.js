@@ -63,14 +63,14 @@ export default function Hero() {
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
                           <img
-                            src="6.jpg"
+                            src="10.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
                           <img
-                            src="10.jpg"
+                            src="6.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
