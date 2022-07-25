@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useStateContext } from "../context/StateContext";
 
 const breadcrumbs = [
   { id: 1, name: "Home", href: "/" },
@@ -7,6 +8,8 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
+  const { cartItems, totalPrice, totalQuantity, quantity } = useStateContext();
+
   return (
     <>
       <div className="min-h-screen mt-20">
@@ -43,13 +46,64 @@ const checkout = () => {
           </ol>
         </nav>
 
-        <div className="flex flex-col justify-center items-center gap-5 m-auto md:w-2/4">
-          <h1 className="text-8xl font-bold ">
-            Thank you for visiting my demo shop. &#128512;
-          </h1>
-          <a href="/" className="bg-indigo-800 p-5 text-white rounded-lg">
-            Home
-          </a>
+        <h1 className="text-4xl font-bold text-center">Checkout</h1>
+        <div className="max-w-screen-xl m-auto grid grid-cols-4 gap-5">
+          <div className="border border-2 col-span-3 min-h-[50vh]">
+            {cartItems.length > 0 &&
+              cartItems.map((item) => {
+                console.log(item);
+                <div className="flex">
+                  <p>{item.name}</p>
+                  <p>{item.quantity}</p>
+                  <p>{item.price}</p>
+                </div>;
+              })}
+          </div>
+          <div className="border border-2 p-5">
+            <form className='flex flex-col justify-evenly min-h-[50vh]'> 
+              <fieldset className=''>
+                <legend className='mb-2 text-xl font-bold'>Order Options</legend>
+                <div className='flex gap-2'>
+                <input className='w-5 h-5' type="radio" name="options" value="pickup" checked/>
+                <label for="pickup">Pickup</label>
+                </div>
+                <div className='flex gap-2'>
+                <input className='w-5 h-5' type="radio" name="options" value="delivery" />
+                <label for="delivery">Delivery</label>
+                </div>
+              </fieldset>
+
+              <fieldset className=''>
+                <legend className='mb-2 text-xl font-bold'>Pickup Time</legend>
+                <div className='flex gap-2'>
+                <input className='w-5 h-5' type="radio" name="time" value="Now" checked/>
+                <label for="Now">Now</label>
+                </div>
+                <div className='flex gap-2'>
+                <input className='w-5 h-5' type="radio" name="time" value="Later" />
+                <label for="Later">Later</label>
+                </div>
+              </fieldset>
+
+              <fieldset className=''>
+                <legend className='mb-2 text-xl font-bold'>Payment</legend>
+                <div className='flex gap-2'>
+                <input className='w-5 h-5' type="radio" name="payment" value="Cash" checked/>
+                <label for="Cash">Cash</label>
+                </div>
+                <div className='flex gap-2'>
+                <input className='w-5 h-5' type="radio" name="payment" value="Credit" />
+                <label for="Credit">Credit</label>
+                </div>
+              </fieldset>
+
+              <button type="submit" className="bg-indigo-600 w-2/4 m-auto my-0 text-white rounded-lg py-2 px-4">Place Order</button>
+              
+            </form>
+           
+          
+      
+          </div>
         </div>
       </div>
     </>

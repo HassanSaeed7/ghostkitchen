@@ -17,11 +17,11 @@ const Shop = ({products}) => {
     <div className="bg-white mt-20">
       
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-4xl mb-10 text-center">Order Now</h2>
+        <h2 className="text-5xl mb-10 text-center">Order Now</h2>
 
-        <div className="divide-y-4 mb-10">
+        <div className="divide-y-4">
           {products.map((product) => (
-            <div className="flex justify-center items-center gap-5">
+            <div className="flex flex-col justify-center items-center gap-16 py-10 md:flex-row">
             
             <div className="w-[350px] h-[550px] ">
                 <img
@@ -34,10 +34,10 @@ const Shop = ({products}) => {
 
             <div className="flex flex-col w-[50%]">
               <h3 className="mb-4 text-3xl font-bold text-gray-700">{product.name}</h3>
-              <p className="mb-2 text-md font-medium text-gray-900">${product.price}</p>
+              <p className="mb-2 text-lg font-italic text-gray-900">${product.price}</p>
               <p className="">{product.description}</p>
 
-              <form className='flex flex-col gap-10 mt-10 w-[50%] m-auto'>                   
+              <form className='flex flex-col gap-10 mt-10 w-[50%]'>                   
 
               <div class='flex'>
               <button className='mr-1 px-5 border-2' onClick={decrementQuantity}>-</button>

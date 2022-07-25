@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { useStateContext } from '../../context/StateContext';
 import { StarIcon } from '@heroicons/react/solid';
-import { RadioGroup } from '@headlessui/react';
 import { sanityClient } from '../../lib/sanity.server';
 import imageUrlBuilder from '@sanity/image-url';
 import Link from "next/link"
