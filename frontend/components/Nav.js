@@ -22,6 +22,7 @@ export default function Nav() {
 
 
 
+
   return (
     <Disclosure as="nav" className="w-full fixed top-0 z-50 bg-white">
       {({ open }) => (

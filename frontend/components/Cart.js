@@ -24,7 +24,6 @@ export default function Cart() {
     router.push('/order');
   }
 
-
   return (
     <>
     <Transition.Root show={showCart} as={Fragment}>

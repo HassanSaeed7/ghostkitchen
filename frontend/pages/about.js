@@ -1,6 +1,7 @@
 import React from 'react'
 
 const about = () => {
+
   return (
     <>
     <div className='max-w-screen-lg my-20 flex flex-col justify-center gap-3 m-auto'>
