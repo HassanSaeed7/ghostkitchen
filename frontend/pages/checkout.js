@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useStateContext } from "../context/StateContext";
+import { useRouter } from "next/router";
 
 const breadcrumbs = [
   { id: 1, name: "Home", href: "/" },
@@ -8,7 +9,15 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice, totalQuantity } = useStateContext();
+  const { cartItems, totalPrice } = useStateContext();
+  const router = useRouter()
+
+  useEffect(() => {
+    if (cartItems.length === 0) {
+    router.push('/order')
+    }
+  }, [])
+
 
   return (
     <>
@@ -49,16 +58,16 @@ const checkout = () => {
         <h1 className="text-4xl font-bold text-center">Checkout</h1>
         <div className="max-w-screen-xl m-auto grid grid-cols-4 gap-5">
           <div className="border border-2 col-span-3 min-h-[50vh]">
-            {cartItems.length > 0 ?
-              cartItems.map((item) => {
-                <div className="flex">
-                  <p>{item.name}</p>
-                  <p>{item.quantity}</p>
-                  <p>{item.price}</p>
-                  <p>{totalPrice}</p>
-                </div>;
-              }):
-              <p>No Items in Cart.</p>}
+            {cartItems.length > 0 && console.log(cartItems)
+              // cartItems.map((item) => {
+              //   <div className="flex">
+              //     <p>{item.name}</p>
+              //     <p>{item.quantity}</p>
+              //     <p>{item.price}</p>
+              //     <p>{totalPrice}</p>
+              //   </div>;
+              // })
+            }
           </div>
           <div className="border border-2 p-5">
             <form className='flex flex-col justify-evenly min-h-[50vh]'> 
