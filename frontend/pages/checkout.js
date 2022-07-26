@@ -4,11 +4,11 @@ import { useStateContext } from "../context/StateContext";
 
 const breadcrumbs = [
   { id: 1, name: "Home", href: "/" },
-  { id: 2, name: "Shop", href: "/shop" },
+  { id: 2, name: "Order", href: "/order" },
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice, totalQuantity, quantity } = useStateContext();
+  const { cartItems, totalPrice, totalQuantity } = useStateContext();
 
   return (
     <>
@@ -49,15 +49,16 @@ const checkout = () => {
         <h1 className="text-4xl font-bold text-center">Checkout</h1>
         <div className="max-w-screen-xl m-auto grid grid-cols-4 gap-5">
           <div className="border border-2 col-span-3 min-h-[50vh]">
-            {cartItems.length > 0 &&
+            {cartItems.length > 0 ?
               cartItems.map((item) => {
-                console.log(item);
                 <div className="flex">
                   <p>{item.name}</p>
                   <p>{item.quantity}</p>
                   <p>{item.price}</p>
+                  <p>{totalPrice}</p>
                 </div>;
-              })}
+              }):
+              <p>No Items in Cart.</p>}
           </div>
           <div className="border border-2 p-5">
             <form className='flex flex-col justify-evenly min-h-[50vh]'> 

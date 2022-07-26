@@ -2,7 +2,6 @@ import { useStateContext } from '../context/StateContext'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import Image from 'next/image'
 import {sanityClient} from '../lib/sanity.server'
 import imageUrlBuilder from '@sanity/image-url'
 import { useRouter } from 'next/router'
@@ -20,14 +19,14 @@ export default function Cart() {
 
 
   const continueShoppingHandler = () => {
-    setShowCart(false);
+    setShowCart(!showCart);
     router.push('/order');
   }
 
   return (
     <>
     <Transition.Root show={showCart} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={()=> setShowCart(false)}>
+      <Dialog as="div" className="relative z-10" onClose={()=> setShowCart(!showCart)}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -138,7 +137,7 @@ export default function Cart() {
                       <p className="mt-0.5 text-sm text-gray-500">Taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <a
-                          href="/checkout" //hook checkout window here
+                          href="/checkout"
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                         >
                           Checkout

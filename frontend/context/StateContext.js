@@ -11,15 +11,7 @@ const Context = createContext();
 
 
 export const StateContext = ({children}) => {
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    reEnterPassword: '',
-    dob: '',
-    agree: false,
-  })
+
     const initialCart = [];
     const initialTotalQuantity = 0;
     const initialTotalPrice = 0;
@@ -104,38 +96,6 @@ export const StateContext = ({children}) => {
         };
 
 
-
-
-       
-
-        //persist cart items
-        // useEffect(() => {
-        // const cartData = JSON.parse(localStorage.getItem('cart'));
-        //     if (cartData) {
-        //         setCartItems(cartData);
-        //     }
-        // }, [])
-
-
-        // useEffect(() => {
-        //     if (cartItems !== initialCart) {
-        //         localStorage.setItem('cart', JSON.stringify(cartItems));
-        //     }
-        // }, [cartItems])
-
-        // useEffect(() => {
-        // const quantityData = JSON.parse(localStorage.getItem('quantity'));
-        // if (quantityData) {   
-        //     setQuantity(quantityData);
-        // }
-        // }, [])
-        
-
-        // useEffect(() => {
-        // if (totalQuantity !== initialTotalQuantity) {
-        //     localStorage.setItem('quantity', JSON.stringify(totalQuantity));
-        // }
-        // },[totalQuantity])
     
 
     return (
@@ -154,8 +114,6 @@ export const StateContext = ({children}) => {
             onCartItemRemoval,
             isLoggedIn,
             setIsLoggedIn,
-            user,
-            setUser
         }}>
             {children}
         </Context.Provider>

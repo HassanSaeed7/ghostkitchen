@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import Img from "../public/oil.jpg";
 import Map from "../components/Map"
 import { Icon } from "@iconify/react";
 
