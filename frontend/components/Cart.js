@@ -69,6 +69,7 @@ export default function Cart() {
                       </div>
 
                       <div className="mt-8">
+                        <h3 className="text-center text-xl font-bold">Cart</h3>
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
 

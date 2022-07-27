@@ -21,9 +21,9 @@ const Shop = ({products}) => {
 
         <div className="divide-y-4">
           {products.map((product) => (
-            <div className="flex flex-col justify-center items-center gap-16 py-10 md:flex-row">
+            <div className="flex flex-col justify-center items-center gap-12 py-16 md:flex-row">
             
-            <div className="w-[350px] h-[550px] ">
+            <div className="w-[300px] h-[450px] ">
                 <img
                   src={urlFor(product.image[0].asset._ref)}
                   alt="product image"
@@ -37,16 +37,16 @@ const Shop = ({products}) => {
               <p className="mb-2 text-lg font-italic text-gray-900">${product.price}</p>
               <p className="">{product.description}</p>
 
-              <form className='flex flex-col gap-10 mt-10 w-[50%]'>                   
+              <form className='flex flex-col gap-10 mt-10 w-fit'>                   
 
-              <div class='flex'>
+              <div class='grid grid-cols-3'>
               <button className='mr-1 px-5 border-2' onClick={decrementQuantity}>-</button>
-              <span className='leading-loose text-center border-2 border-gray-200 w-full' id='quantity' name='quantity'>{quantity}</span>
+              <span className='leading-loose text-center border-2 border-gray-200' id='quantity' name='quantity'>{quantity}</span>
               <button className='ml-1 px-5  border-2' onClick={incrementQuantity}>+</button>
               </div>
             
               
-              <button onClick={() => addToCartHandler(product, quantity) } type='button' className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+              <button onClick={() => addToCartHandler(product, quantity) } type='button' className="w-fit m-auto flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                 Add to Cart ({'$' + quantity * product.price})
               </button>
             </form>

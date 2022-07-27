@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
@@ -6,12 +6,12 @@ import Logo from "../public/logo.png"
 import Link from 'next/link'
 import { useStateContext } from '../context/StateContext'
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Order', href: '/order', current: false },
-  { name: 'About', href: '/about', current: false },
-  { name: 'Contact', href: '/contact', current: false },
-]
+// const navigation = [
+//   { name: 'Home',    href: '/',         current: true },
+//   { name: 'Order',   href: '/order',    current: false },
+//   { name: 'About',   href: '/about',    current: false },
+//   { name: 'Contact', href: '/contact',  current: false },
+// ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -19,8 +19,35 @@ function classNames(...classes) {
 
 export default function Nav() {
   const { showCart, setShowCart, totalQuantity } = useStateContext();
+  const [navigation, setNavigation] = useState([
+  { name: 'Home',    href: '/',         current: true },
+  { name: 'Order',   href: '/order',    current: false },
+  { name: 'About',   href: '/about',    current: false },
+  { name: 'Contact', href: '/contact',  current: false },
+]);
+
+  // useEffect(() => { 
+  //   navigation.forEach((i) => {
+  //     if (i.href === location.pathname) {
+  //       setNavigation(prev => prev.map(item => {...item, current: !item.current})
+        
+  //     } else {
+  //       setNavigation()
+        
+  //     }
+  //   })
+  // }, [navigation])
 
 
+
+  // useEffect(() => {
+  //   setNavigation(state => {
+  //     return state.map(item => {
+  
+  //         return item.href === location.pathname ? {...item, current: !item.current} : item
+  //     })
+  // }); 
+  // }, []);
 
 
   return (

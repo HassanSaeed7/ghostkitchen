@@ -20,7 +20,6 @@ export const StateContext = ({children}) => {
     const [totalPrice, setTotalPrice] = useLocalStorage("totalPrice", initialTotalPrice);
     const [totalQuantity, setTotalQuantity] = useLocalStorage("quantity", initialTotalQuantity);
     const [quantity, setQuantity] = useState(1);
-    const [isLoggedIn, setIsLoggedIn] = useLocalStorage(false);
     let foundProduct;
     let index;
 
@@ -112,8 +111,7 @@ export const StateContext = ({children}) => {
             addToCartHandler,
             toggleCartItemsQuantity,
             onCartItemRemoval,
-            isLoggedIn,
-            setIsLoggedIn,
+           
         }}>
             {children}
         </Context.Provider>
