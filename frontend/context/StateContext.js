@@ -94,6 +94,7 @@ export const StateContext = ({children}) => {
         setCartItems(newCartItems);
         };
 
+        
 
     
 
@@ -110,7 +111,7 @@ export const StateContext = ({children}) => {
             decrementQuantity,
             addToCartHandler,
             toggleCartItemsQuantity,
-            onCartItemRemoval,
+            onCartItemRemoval
            
         }}>
             {children}

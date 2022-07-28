@@ -19,14 +19,17 @@ export default function Cart() {
 
 
   const continueShoppingHandler = () => {
-    setShowCart(!showCart);
+    setShowCart(false);
     router.push('/order');
   }
+
+
+  
 
   return (
     <>
     <Transition.Root show={showCart} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={()=> setShowCart(!showCart)}>
+      <Dialog as="div" className="relative z-10" onClose={ () => setShowCart(false) }>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"

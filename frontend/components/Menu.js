@@ -12,14 +12,20 @@ const Menu = ({products}) => {
     console.log(products)
   return (
     <div>
-        <h2 className="text-4xl font-bold text-center">Menu</h2>
+        <h2 className="text-4xl font-bold text-center mt-20 mb-5 text-indigo-600">House Specials</h2>
 
-        <div className='grid grid-cols-2'>
-            {/* {products.map(product => (
-                <div>
-                    {product.name}
-                </div>    
-            ))}    */}
+        <div className='grid grid-cols-3'>
+            {products.map(product => (
+                
+              <div className="w-full h-[400px] overflow-hidden">
+                <img
+                  src={urlFor(product.image[0].asset._ref)}
+                  alt="product image"
+                  className="w-full h-full object-center object-cover hover:scale-105 transition-scale ease-in-out duration-500"
+                />
+              </div>
+                  
+            ))}   
             
         </div>
 
@@ -29,14 +35,5 @@ const Menu = ({products}) => {
 }
 
 
-//sanity
-// export const getServerSideProps = async () => { 
-//     const query = '*[_type == "product"]'
-//     const products = await sanityClient.fetch(query)
-  
-//     return {
-//       props: {products}
-//     }
-// }
 
 export default Menu

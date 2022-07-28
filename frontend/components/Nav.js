@@ -19,8 +19,11 @@ function classNames(...classes) {
 }
 
 export default function Nav() {
-  const { showCart, setShowCart, totalQuantity } = useStateContext();
+  const { setShowCart, showCart, totalQuantity } = useStateContext();
   const router = useRouter();
+
+
+
 
   return (
     <Disclosure as="nav" className="w-full fixed top-0 z-50 bg-white">
@@ -80,15 +83,15 @@ export default function Nav() {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex gap-2 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                
-                <button onClick={ () => setShowCart(!showCart) }
+                {router.route === '/checkout' 
+                ? null 
+                : <button onClick={ () => setShowCart(!showCart) }
                   className="relative rounded-full text-gray-400 hover:text-white"
                 >
-                
                   <Image src='/cart.svg' alt='Shopping Cart' width={50} height={35} />
                   <span className="bg-red-800 rounded-[50%] w-3 h-3 p-3 flex items-center justify-center absolute -top-1 -left-1 text-white">{totalQuantity}</span>
                 </button>
-
+              }
     
 
               
