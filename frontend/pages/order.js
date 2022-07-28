@@ -23,7 +23,7 @@ const Shop = ({products}) => {
           {products.map((product) => (
             <div className="flex flex-col justify-center items-center gap-12 py-16 md:flex-row">
             
-            <div className="w-[300px] h-[450px] ">
+            <div className="w-3/4 h-[500px] ">
                 <img
                   src={urlFor(product.image[0].asset._ref)}
                   alt="product image"

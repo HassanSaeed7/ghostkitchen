@@ -14,7 +14,7 @@ const checkout = () => {
 
   useEffect(() => {
     if (cartItems.length === 0) {
-    router.push('/order')
+    router.replace('/order')
     }
   }, [])
 

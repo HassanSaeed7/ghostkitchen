@@ -70,7 +70,7 @@ export default function Hero() {
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
                           <img
-                            src="6.jpg"
+                            src="11.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />

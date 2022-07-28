@@ -1,13 +1,14 @@
 import Head from 'next/head'
 import Featured from '../components/Featured'
 import Hero from '../components/Hero'
+import Menu from '../components/Menu'
 import {sanityClient} from '../lib/sanity.server'
 
-const Home = ({ product, banner }) => {
+const Home = ({ products }) => {
   return (
     <div className='mt-16'>
       <Head>
-        <title>Wholesale</title>
+        <title>Samosa House</title>
         <meta name="Home Page." content="ECommerce site created with NextJS." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -15,6 +16,7 @@ const Home = ({ product, banner }) => {
 
     <main>
     <Hero />
+    <Menu products={products} />
     <Featured />
     </main>
 
@@ -23,14 +25,13 @@ const Home = ({ product, banner }) => {
 }
 
 
+//sanity
 export const getServerSideProps = async () => { 
-  const bannerQuery = '*[_type == "banner"]'
-  const banner = await sanityClient.fetch(bannerQuery)
-  const productQuery = '*[_type == "banner"]'
-  const product = await sanityClient.fetch(productQuery)
+  const query = '*[_type == "product"]'
+  const products = await sanityClient.fetch(query)
 
   return {
-    props: { product, banner }
+    props: {products}
   }
 }
 

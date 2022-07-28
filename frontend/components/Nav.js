@@ -1,17 +1,18 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import Image from 'next/image'
-import Logo from "../public/logo.png"
-import Link from 'next/link'
 import { useStateContext } from '../context/StateContext'
+import Image from 'next/image'
+import Link from 'next/link'
+import {useRouter} from 'next/router'
+import Logo from "../public/logo.png"
 
-// const navigation = [
-//   { name: 'Home',    href: '/',         current: true },
-//   { name: 'Order',   href: '/order',    current: false },
-//   { name: 'About',   href: '/about',    current: false },
-//   { name: 'Contact', href: '/contact',  current: false },
-// ]
+const navigation = [
+  { name: 'Home',    href: '/'},
+  { name: 'Order',   href: '/order'},
+  { name: 'About',   href: '/about'},
+  { name: 'Contact', href: '/contact'},
+]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -19,36 +20,7 @@ function classNames(...classes) {
 
 export default function Nav() {
   const { showCart, setShowCart, totalQuantity } = useStateContext();
-  const [navigation, setNavigation] = useState([
-  { name: 'Home',    href: '/',         current: true },
-  { name: 'Order',   href: '/order',    current: false },
-  { name: 'About',   href: '/about',    current: false },
-  { name: 'Contact', href: '/contact',  current: false },
-]);
-
-  // useEffect(() => { 
-  //   navigation.forEach((i) => {
-  //     if (i.href === location.pathname) {
-  //       setNavigation(prev => prev.map(item => {...item, current: !item.current})
-        
-  //     } else {
-  //       setNavigation()
-        
-  //     }
-  //   })
-  // }, [navigation])
-
-
-
-  // useEffect(() => {
-  //   setNavigation(state => {
-  //     return state.map(item => {
-  
-  //         return item.href === location.pathname ? {...item, current: !item.current} : item
-  //     })
-  // }); 
-  // }, []);
-
+  const router = useRouter();
 
   return (
     <Disclosure as="nav" className="w-full fixed top-0 z-50 bg-white">
@@ -90,11 +62,14 @@ export default function Nav() {
                         href={item.href}
                         
                       >
-                        <a className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                        <a 
+                        className={classNames("px-3 py-2 rounded-md text-sm font-medium", 
+                        router.route === item.href 
+                        ? "bg-gray-900 text-white" 
+                        : "text-black hover:bg-gray-700 hover:text-white"
                         )}
-                        aria-current={item.current ? 'page' : undefined}>
+                        aria-current={router.route === item.href ? "page" : undefined}                        
+                        >
                           {item.name}
                         </a>
                         
