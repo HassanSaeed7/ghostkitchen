@@ -22,6 +22,7 @@ export const StateContext = ({children}) => {
     const [quantity, setQuantity] = useState(1);
     let foundProduct;
     let index;
+    const tax = 8.75
 
     //product page functions
     const incrementQuantity = (event) => {
@@ -111,7 +112,8 @@ export const StateContext = ({children}) => {
             decrementQuantity,
             addToCartHandler,
             toggleCartItemsQuantity,
-            onCartItemRemoval
+            onCartItemRemoval,
+            tax
            
         }}>
             {children}

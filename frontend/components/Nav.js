@@ -5,7 +5,7 @@ import { useStateContext } from '../context/StateContext'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import Logo from "../public/logo.png"
+import Logo from "../public/samo.png"
 
 const navigation = [
   { name: 'Home',    href: '/'},
@@ -51,8 +51,11 @@ export default function Nav() {
                     
                   <Link href='/'>
                     <a className='flex items-center text-2xl font-bold'>
-                    Samosa House
-                    <Image src={Logo} alt="logo" width={50} height={50} />
+                    Samosa 
+                    <div className='px-2'>
+                      <Image src={Logo} alt="logo" width={50} height={50} className='' />
+                    </div>
+                    House
                   </a>
                   </Link>
                 </div>

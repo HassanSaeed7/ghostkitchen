@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useStateContext } from "../context/StateContext";
 import { useRouter } from "next/router";
+import {sanityClient} from '../lib/sanity.server'
+import imageUrlBuilder from '@sanity/image-url'
 
 const breadcrumbs = [
   { id: 1, name: "Home", href: "/" },
@@ -9,15 +11,28 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice } = useStateContext();
-  const router = useRouter()
+  const { cartItems, totalPrice, tax } = useStateContext();
+  const router = useRouter();
+  const builder = imageUrlBuilder(sanityClient)
+
+  function urlFor(source) {
+    return builder.image(source)
+  }
 
   useEffect(() => {
     if (cartItems.length === 0) {
-    router.replace('/order')
+      router.replace("/order");
     }
-  }, [])
+  }, []);
 
+
+  const total = totalPrice * (tax/100);
+
+  const orderHandler = () => {
+    if (cartItems.length === 0) {
+    router.push('/confirm');
+    }
+  };
 
   return (
     <>
@@ -58,61 +73,125 @@ const checkout = () => {
         <h1 className="text-4xl font-bold text-center">Checkout</h1>
         <div className="max-w-screen-xl m-auto grid grid-cols-4 gap-5">
           <div className="border border-2 col-span-3 min-h-[50vh]">
-            {cartItems.length > 0 && console.log(cartItems)
-              // cartItems.map((item) => {
-              //   <div className="flex">
-              //     <p>{item.name}</p>
-              //     <p>{item.quantity}</p>
-              //     <p>{item.price}</p>
-              //     <p>{totalPrice}</p>
-              //   </div>;
-              // })
-            }
-          </div>
-          <div className="border border-2 p-5">
-            <form className='flex flex-col justify-evenly min-h-[50vh]'> 
-              <fieldset className=''>
-                <legend className='mb-2 text-xl font-bold'>Order Options</legend>
-                <div className='flex gap-2'>
-                <input className='w-5 h-5' type="radio" name="options" value="pickup" checked/>
-                <label for="pickup">Pickup</label>
+            <div className='grid grid-cols-4 gap-5 px-10 items-center'>
+              <p className='col-span-2 text-center'>Product</p>
+              <p>Quantity</p>
+              <p>Price</p>
+            </div>
+            {cartItems.length > 0 
+            ? cartItems.map(i => (
+              <div className="grid gap-5 grid-cols-4 items-center px-10">
+                <div className="w-5/8 h-3/4 rounded-lg overflow-hidden">                
+                  <img src={urlFor(i.image[0].asset._ref)} alt='Product Img' className='object-cover object-center' />
                 </div>
-                <div className='flex gap-2'>
-                <input className='w-5 h-5' type="radio" name="options" value="delivery" />
-                <label for="delivery">Delivery</label>
-                </div>
-              </fieldset>
+                <p className='text-lg'>{i.name}</p>
+                
+                <p className="italic">{i.quantity}/ea.</p>
+                
+                <p className='text-xl font-bold'>${i.price}</p>
+              </div>
 
-              <fieldset className=''>
-                <legend className='mb-2 text-xl font-bold'>Pickup Time</legend>
-                <div className='flex gap-2'>
-                <input className='w-5 h-5' type="radio" name="time" value="Now" checked/>
-                <label for="Now">Now</label>
-                </div>
-                <div className='flex gap-2'>
-                <input className='w-5 h-5' type="radio" name="time" value="Later" />
-                <label for="Later">Later</label>
-                </div>
-              </fieldset>
-
-              <fieldset className=''>
-                <legend className='mb-2 text-xl font-bold'>Payment</legend>
-                <div className='flex gap-2'>
-                <input className='w-5 h-5' type="radio" name="payment" value="Cash" checked/>
-                <label for="Cash">Cash</label>
-                </div>
-                <div className='flex gap-2'>
-                <input className='w-5 h-5' type="radio" name="payment" value="Credit" />
-                <label for="Credit">Credit</label>
-                </div>
-              </fieldset>
-
-              <button type="submit" className="bg-indigo-600 w-2/4 m-auto my-0 text-white rounded-lg py-2 px-4">Place Order</button>
+            ))
               
+            
+            : (
+              <p className="w-full h-full flex justify-center items-center">
+                No Items in Cart. Redirecting...
+              </p>
+            )}
+
+
+            <div className='border-t-2 p-5 text-right'>Subtotal: {totalPrice > 0 && <p className="font-bold text-xl">${totalPrice}</p>}</div>
+          </div>
+         
+         
+          <div className="border border-2 p-5">
+            <div>
+              <p>Subtotal: ${totalPrice}</p>
+              <p>Tax: {tax}%</p>
+              <p>Total: {(totalPrice + total).toFixed(2)}</p>
+
+            </div>
+            <form className="flex flex-col justify-evenly min-h-[50vh]">
+              <fieldset className="">
+                <legend className="mb-2 text-xl font-bold">
+                  Order Options
+                </legend>
+                <div className="flex gap-2">
+                  <input
+                    className="w-5 h-5"
+                    type="radio"
+                    name="options"
+                    value="pickup"
+                    defaultChecked
+                  />
+                  <label htmlFor="pickup">Pickup</label>
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    className="w-5 h-5"
+                    type="radio"
+                    name="options"
+                    value="delivery"
+                  />
+                  <label htmlFor="delivery">Delivery</label>
+                </div>
+              </fieldset>
+
+              <fieldset className="">
+                <legend className="mb-2 text-xl font-bold">Pickup Time</legend>
+                <div className="flex gap-2">
+                  <input
+                    className="w-5 h-5"
+                    type="radio"
+                    name="time"
+                    value="Now"
+                    defaultChecked
+                  />
+                  <label htmlFor="Now">Now</label>
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    className="w-5 h-5"
+                    type="radio"
+                    name="time"
+                    value="Later"
+                  />
+                  <label htmlFor="Later">Later</label>
+                </div>
+              </fieldset>
+
+              <fieldset className="">
+                <legend className="mb-2 text-xl font-bold">Payment</legend>
+                <div className="flex gap-2">
+                  <input
+                    className="w-5 h-5"
+                    type="radio"
+                    name="payment"
+                    value="Cash"
+                    defaultChecked
+                  />
+                  <label htmlFor="Cash">Cash</label>
+                </div>
+                <div className="flex gap-2">
+                  <input
+                    className="w-5 h-5"
+                    type="radio"
+                    name="payment"
+                    value="Credit"
+                  />
+                  <label htmlFor="Credit">Credit</label>
+                </div>
+              </fieldset>
+
+              <button
+                type="submit"
+                className="bg-indigo-600 w-2/4 m-auto my-0 text-white rounded-lg py-2 px-4"
+                onClick={orderHandler}
+              >
+                Place Order
+              </button>
             </form>
-           
-          
-      
           </div>
         </div>
       </div>

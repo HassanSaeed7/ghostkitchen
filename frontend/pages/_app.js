@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { StateContext } from "../context/StateContext"
 import { Toaster } from 'react-hot-toast';
 import Nav from "../components/Nav"
@@ -8,12 +9,24 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
 
 
+  const [showChild, setShowChild] = useState(false);
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
+
+  if (!showChild) {
+    return null;
+  }
+
+  if (typeof window === 'undefined') {
+    return <></>;
+  } else {
 
   return (
     <>
     <StateContext>
     <Toaster
-      position="bottom-center"
+      position="top-center"
       reverseOrder={false}
     />
     <Nav />
@@ -24,6 +37,7 @@ function MyApp({ Component, pageProps }) {
     </>
 
   )
+  } 
 }
 
 export default MyApp

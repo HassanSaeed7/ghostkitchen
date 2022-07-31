@@ -1,5 +1,5 @@
 import { useStateContext } from '../context/StateContext'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import {sanityClient} from '../lib/sanity.server'
@@ -77,7 +77,7 @@ export default function Cart() {
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
 
                             {cartItems.length >= 1 ? cartItems.map((product) => (
-                              <li key={product.id} className="flex py-6">
+                              <li key={product.name} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   
                                   {product && <img
@@ -95,7 +95,6 @@ export default function Cart() {
                                       </h3>
                                       <p className="ml-4">${product.price}</p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <div class='flex w-full mr-2'>

@@ -32,7 +32,7 @@ const Shop = ({products}) => {
               </div>
 
 
-            <div className="flex flex-col w-[50%]">
+            <div className="flex flex-col lg:w-[50%]">
               <h3 className="mb-4 text-3xl font-bold text-gray-700">{product.name}</h3>
               <p className="mb-2 text-lg font-italic text-gray-900">${product.price}</p>
               <p className="">{product.description}</p>
