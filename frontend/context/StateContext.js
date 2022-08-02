@@ -1,8 +1,7 @@
 import React, { 
   createContext, 
   useContext, 
-  useState, 
-  useEffect
+  useState
 } from 'react';
 import toast from 'react-hot-toast';
 import { useLocalStorage } from '../hooks/useLocalStorage';
@@ -22,7 +21,9 @@ export const StateContext = ({children}) => {
     const [quantity, setQuantity] = useState(1);
     let foundProduct;
     let index;
-    const tax = 8.75
+    const tax = 8.75;
+    const total = totalPrice * (tax/100);
+    const [purchasedItems, setPurchasedItems] = useState([]);
 
     //product page functions
     const incrementQuantity = (event) => {
@@ -95,7 +96,11 @@ export const StateContext = ({children}) => {
         setCartItems(newCartItems);
         };
 
-        
+        const onConfirmation = () => {
+          setTotalPrice(initialTotalPrice);
+          setTotalQuantity(initialTotalQuantity);
+          setCartItems(initialCart);
+        };
 
     
 
@@ -113,7 +118,12 @@ export const StateContext = ({children}) => {
             addToCartHandler,
             toggleCartItemsQuantity,
             onCartItemRemoval,
-            tax
+            tax,
+            total,
+            initialCart,
+            onConfirmation,
+            purchasedItems,
+            setPurchasedItems
            
         }}>
             {children}

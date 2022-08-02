@@ -1,4 +1,9 @@
+import Link from "next/link";
+import { motion, useAnimation } from "framer-motion";
+
+
 export default function Hero() {
+  
     return (
       <div className="relative bg-white overflow-hidden">
         <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
@@ -79,13 +84,11 @@ export default function Hero() {
                     </div>
                   </div>
                 </div>
-  
-                <a
-                  href="/order"
-                  className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700"
-                >
+              <Link href="/order">
+                <a className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">
                   Order Now
                 </a>
+              </Link>
               </div>
             </div>
           </div>

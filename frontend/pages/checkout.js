@@ -11,7 +11,7 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice, tax } = useStateContext();
+  const { cartItems, totalPrice, setPurchasedItems, tax, total } = useStateContext();
   const router = useRouter();
   const builder = imageUrlBuilder(sanityClient)
 
@@ -26,12 +26,11 @@ const checkout = () => {
   }, []);
 
 
-  const total = totalPrice * (tax/100);
 
-  const orderHandler = () => {
-    if (cartItems.length === 0) {
-    router.push('/confirm');
-    }
+  const orderHandler = (event) => {
+    event.preventDefault();
+    setPurchasedItems(cartItems);
+    router.push('/confirmation');
   };
 
   return (
@@ -108,8 +107,8 @@ const checkout = () => {
           <div className="border border-2 p-5">
             <div>
               <p>Subtotal: ${totalPrice}</p>
-              <p>Tax: {tax}%</p>
-              <p>Total: {(totalPrice + total).toFixed(2)}</p>
+              <p>Tax: ${total} ({tax}%)</p>
+              <p>Total: ${(totalPrice + total).toFixed(2)}</p>
 
             </div>
             <form className="flex flex-col justify-evenly min-h-[50vh]">
