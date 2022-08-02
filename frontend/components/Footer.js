@@ -9,7 +9,7 @@ import Logo from "../public/samo.png";
 const Footer = () => {
   return (
     <div className="min-h-third grid items-end">
-      <div className="border-4 p-10 w-full m-auto my-20 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
+      <div className="border-4 p-10 md:w-full m-auto my-10 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
         <div className="justify-evenly items-center">
           <div className=" lg:col-span-1 text-center pt-10 lg:pt-0">
             <Image src={Logo} alt='logo' width={100} height={100} className="m-auto" />

@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useStateContext } from "../context/StateContext";
 import { useRouter } from "next/router";
-import {sanityClient} from '../lib/sanity.server'
-import imageUrlBuilder from '@sanity/image-url'
+import { sanityClient } from "../lib/sanity.server";
+import imageUrlBuilder from "@sanity/image-url";
 
 const breadcrumbs = [
   { id: 1, name: "Home", href: "/" },
@@ -11,12 +11,13 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice, setPurchasedItems, tax, total } = useStateContext();
+  const { cartItems, totalPrice, setPurchasedItems, tax, total } =
+    useStateContext();
   const router = useRouter();
-  const builder = imageUrlBuilder(sanityClient)
+  const builder = imageUrlBuilder(sanityClient);
 
   function urlFor(source) {
-    return builder.image(source)
+    return builder.image(source);
   }
 
   useEffect(() => {
@@ -25,12 +26,10 @@ const checkout = () => {
     }
   }, []);
 
-
-
   const orderHandler = (event) => {
     event.preventDefault();
     setPurchasedItems(cartItems);
-    router.push('/confirmation');
+    router.push("/confirmation");
   };
 
   return (
@@ -72,45 +71,60 @@ const checkout = () => {
         <h1 className="text-4xl font-bold text-center">Checkout</h1>
         <div className="max-w-screen-xl m-auto grid grid-cols-4 gap-5">
           <div className="border border-2 col-span-3 min-h-[50vh]">
-            <div className='grid grid-cols-4 gap-5 px-10 items-center'>
-              <p className='col-span-2 text-center'>Product</p>
-              <p>Quantity</p>
-              <p>Price</p>
+            <div className="grid grid-cols-4 gap-5 px-10 py-3 items-center">
+              <p className="col-span-2 text-center font-bold underline text-xl">
+                Item(s)
+              </p>
+              <p className="font-bold underline text-xl">Quantity</p>
+              <p className="font-bold underline text-xl">Price</p>
             </div>
-            {cartItems.length > 0 
-            ? cartItems.map(i => (
-              <div className="grid gap-5 grid-cols-4 items-center px-10">
-                <div className="w-5/8 h-3/4 rounded-lg overflow-hidden">                
-                  <img src={urlFor(i.image[0].asset._ref)} alt='Product Img' className='object-cover object-center' />
-                </div>
-                <p className='text-lg'>{i.name}</p>
-                
-                <p className="italic">{i.quantity}/ea.</p>
-                
-                <p className='text-xl font-bold'>${i.price}</p>
-              </div>
+            {cartItems.length > 0 ? (
+              cartItems.map((i) => (
+                <div className="grid gap-5 grid-cols-4 items-center px-10">
+                  <div className="w-3/4 h-3/4 rounded-lg overflow-hidden">
+                    <img
+                      src={urlFor(i.image[0].asset._ref)}
+                      alt="Product Img"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                  <p className="text-lg">{i.name}</p>
 
-            ))
-              
-            
-            : (
+                  <p className="italic">{i.quantity}/ea.</p>
+
+                  <p className="text-xl font-bold">${i.price}</p>
+                </div>
+              ))
+            ) : (
               <p className="w-full h-full flex justify-center items-center">
                 No Items in Cart. Redirecting...
               </p>
             )}
 
-
-            <div className='border-t-2 p-5 text-right'>Subtotal: {totalPrice > 0 && <p className="font-bold text-xl">${totalPrice}</p>}</div>
+            <div className="border-t-2 p-5 text-right">
+              Subtotal:{" "}
+              {totalPrice > 0 && (
+                <p className="font-bold text-xl">${totalPrice.toFixed(2)}</p>
+              )}
+            </div>
           </div>
-         
-         
+
           <div className="border border-2 p-5">
             <div>
-              <p>Subtotal: ${totalPrice}</p>
-              <p>Tax: ${total} ({tax}%)</p>
-              <p>Total: ${(totalPrice + total).toFixed(2)}</p>
-
+              <div className="w-full flex gap-2 justify-between items-center">
+                <p className="text-lg">Subtotal:</p>
+                <p>${totalPrice.toFixed(2)}</p>
+              </div>
+              <div className="w-full flex justify-between items-center">
+                <p className="text-lg italic">Tax ({tax}%): </p>{" "}
+                <p> ${total.toFixed(2)}</p>
+              </div>
+              <div className="w-full flex justify-between items-center border-t-4 py-2">
+                <p className="text-lg font-bold">Total: </p>{" "}
+                <p className='text-xl font-bold'> ${(totalPrice + total).toFixed(2)}</p>
+              </div>
             </div>
+
             <form className="flex flex-col justify-evenly min-h-[50vh]">
               <fieldset className="">
                 <legend className="mb-2 text-xl font-bold">
@@ -126,7 +140,7 @@ const checkout = () => {
                   />
                   <label htmlFor="pickup">Pickup</label>
                 </div>
-                <div className="flex gap-2">
+                {/* <div className="flex gap-2">
                   <input
                     className="w-5 h-5"
                     type="radio"
@@ -134,7 +148,7 @@ const checkout = () => {
                     value="delivery"
                   />
                   <label htmlFor="delivery">Delivery</label>
-                </div>
+                </div> */}
               </fieldset>
 
               <fieldset className="">
@@ -177,9 +191,9 @@ const checkout = () => {
                     className="w-5 h-5"
                     type="radio"
                     name="payment"
-                    value="Credit"
+                    value="PayOnline"
                   />
-                  <label htmlFor="Credit">Credit</label>
+                  <label htmlFor="PayOnline">Pay Online</label>
                 </div>
               </fieldset>
 

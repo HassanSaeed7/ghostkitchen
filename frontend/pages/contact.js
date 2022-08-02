@@ -8,7 +8,7 @@ const contact = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-center mt-10 pt-10 lg:flex-row">
+    <div className="flex flex-col items-start justify-center mt-10 py-10 lg:flex-row">
       <div className="px-20 lg:w-2/4">
         <h2 className="font-bold mb-4 text-5xl text-indigo-600">
           Contact Us
@@ -39,15 +39,7 @@ const contact = () => {
               required
             />
 
-            <label for="company">Company</label>
-            <input
-              className="border-solid border-2 rounded-lg indent-1"
-              type="text"
-              id="company"
-              name="company"
-            />
-
-            <label for="phone">Phone Number</label>
+            <label for="phone">Phone</label>
             <input
               className="border-solid border-2 rounded-lg indent-1"
               type="tel"
@@ -75,40 +67,14 @@ const contact = () => {
           </form>
         </div>
 
-        <div
-          before="— "
-          after=" —"
-          className="w-auto text-center py-10 text-4xl font-bold before:content-[attr(before)] after:content-[attr(after)]"
-        >
-          OR
-        </div>
 
-        <div className="flex flex-col items-center ">
-          <ul>
-            <li className="flex justify-start items-center gap-5 py-4 text-2xl">
-              <Icon icon="carbon:phone" />
-              (000) 000 - 0000
-            </li>
-            <li className="flex justify-start items-center gap-5 py-4 text-2xl">
-              <Icon icon="carbon:email" />
-              <a href=''>email@email.com</a>
-            </li>
-            <li className="flex justify-start items-center gap-5 py-4 text-2xl">
-              <Icon icon="carbon:location" />
-              <div>
-                <p>12345 Address</p>
-                <p>City, State 00000</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="lg:w-2/4 lg:h-screen">
-        {/* <Image src={Img} alt="Img" /> */}
-        <Map />
         
       </div>
+
+      <div className="w-full h-[50vh] lg:w-2/4 lg:h-[80vh] p-5">
+        <Map /> 
+      </div>
+
     </div>
   );
 };

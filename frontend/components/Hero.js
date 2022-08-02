@@ -3,7 +3,12 @@ import { motion, useAnimation } from "framer-motion";
 
 
 export default function Hero() {
-  
+
+  const item = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  };
+
     return (
       <div className="relative bg-white overflow-hidden">
         <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
@@ -28,14 +33,22 @@ export default function Hero() {
                     <div className="flex items-center space-x-6 lg:space-x-8">
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                            transition={{ duration: 1.5, delay: 0.5 }}
                             src="1.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ duration: 1.5, delay: 0.5 }}
                             src="2.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -44,21 +57,33 @@ export default function Hero() {
                       </div>
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ duration: 1.5, delay: 0.5 }}
                             src="3.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ duration: 1.5, delay: 0.5 }}
                             src="8.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ duration: 1.5, delay: 0.5 }}
                             src="9.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -67,14 +92,22 @@ export default function Hero() {
                       </div>
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ duration: 1.5, delay: 0.5 }}
                             src="10.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
                         </div>
                         <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <img
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ duration: 1.5, delay: 0.5 }}
                             src="11.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"

@@ -51,7 +51,6 @@ export default function Nav() {
                           alt="logo"
                           width={50}
                           height={50}
-                          className=""
                         />
                       </div>
                       House
@@ -85,13 +84,13 @@ export default function Nav() {
               <div className="absolute inset-y-0 right-0 flex gap-2 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {router.route === "/checkout" ? null : (
                   <button
-                    onClick={() => setShowCart(!showCart)}
+                    onClick={() => setShowCart(showCart => !showCart)}
                     className="relative rounded-full text-gray-400 hover:text-white"
                   >
                     <Image
                       src="/cart.svg"
                       alt="Shopping Cart"
-                      width={50}
+                      width={40}
                       height={40}
                     />
                     <span className="bg-red-800 rounded-[50%] w-3 h-3 p-3 flex items-center justify-center absolute -top-1 -left-1 text-white">
