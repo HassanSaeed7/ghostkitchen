@@ -5,7 +5,7 @@ const about = () => {
 
   return (
     <>
-    <h1 className='text-center mt-20 text-indigo-600 text-6xl font-bold'>About Us</h1>
+    <h1 className='text-center mt-20 text-indigo-600 text-3xl font-bold lg:text-5xl'>About Us</h1>
       <Featured />
     </>
   )

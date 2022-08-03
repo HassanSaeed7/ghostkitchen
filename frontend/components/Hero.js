@@ -19,7 +19,7 @@ export default function Hero() {
                 <span className="block text-indigo-600 xl:inline">Samosas</span>
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-              We aim to combine Indian delicacies with the western palate. Our meals are always fresh, nutritious, and soulful. Our high-quality standards start from our raw material and continue throughout the process of cooking and serving. Our standards don't apply to only our food, but also our team. We select only the most qualified and equipped and individuals to represent our brand and satisfy our customers. 
+              We aim to combine Indian delicacies with the western palate. Our meals are always fresh and flavorful. Our high-quality standards start from our raw ingredients and continue throughout the cooking process to ensure the most soulful meals. 
               </p>
             </div>
             <div>
@@ -37,7 +37,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                            transition={{ duration: 1.5, delay: 0.5 }}
+                            transition={{ delay: 0.25 }}
                             src="1.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -48,7 +48,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                              transition={{ duration: 1.5, delay: 0.5 }}
+                              transition={{ delay: 0.25 }}
                             src="2.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -61,7 +61,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                              transition={{ duration: 1.5, delay: 0.5 }}
+                              transition={{ delay: 0.25 }}
                             src="3.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -72,7 +72,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                              transition={{ duration: 1.5, delay: 0.5 }}
+                              transition={{ delay: 0.25 }}
                             src="8.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -83,7 +83,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                              transition={{ duration: 1.5, delay: 0.5 }}
+                              transition={{ delay: 0.25 }}
                             src="9.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -96,7 +96,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                              transition={{ duration: 1.5, delay: 0.5 }}
+                              transition={{ delay: 0.25 }}
                             src="10.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"
@@ -107,7 +107,7 @@ export default function Hero() {
                             initial="hidden" 
                             animate="visible"
                             variants={item}
-                              transition={{ duration: 1.5, delay: 0.5 }}
+                              transition={{ delay: 0.25 }}
                             src="11.jpg"
                             alt=""
                             className="w-full h-full object-center object-cover"

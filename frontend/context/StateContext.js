@@ -24,6 +24,8 @@ export const StateContext = ({children}) => {
     const tax = 8.75;
     const total = totalPrice * (tax/100);
     const [purchasedItems, setPurchasedItems] = useState([]);
+    const [taxTotal, setTaxTotal] = useState(0);
+    const [purchasedPrice, setPurchasedPrice] = useState(0);
 
     //product page functions
     const incrementQuantity = (event) => {
@@ -123,7 +125,11 @@ export const StateContext = ({children}) => {
             initialCart,
             onConfirmation,
             purchasedItems,
-            setPurchasedItems
+            setPurchasedItems,
+            taxTotal, 
+            setTaxTotal,
+            purchasedPrice, 
+            setPurchasedPrice
            
         }}>
             {children}

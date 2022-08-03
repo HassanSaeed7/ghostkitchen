@@ -19,19 +19,21 @@ const Shop = ({ products }) => {
     };
 
   return (
-    <div className="bg-white mt-12">
+    <div className="bg-white mt-5">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-5xl text-center">Order Now</h2>
+        <h2 className="text-indigo-600 text-3xl lg:text-5xl font-bold text-center">Order Now</h2>
 
         <div className="divide-y-4">
           {products.map((product) => (
-            <motion.div  
-            initial="hidden" 
-            animate="visible"
-            variants={item} 
+            <div 
+            key={product.name}  
             className="flex flex-col justify-center items-center gap-12 py-16 lg:flex-row">
-              <div className="w-3/4 h-[500px] ">
-                <img
+              <div className="w-3/4 lg:w-2/4 h-[400px]" >
+                <motion.img
+                   initial="hidden" 
+                   animate="visible"
+                   variants={item} 
+                   transition={{delay: 0.25}}
                   src={urlFor(product.image[0].asset._ref)}
                   alt="product image"
                   className="rounded-lg w-full h-full object-center object-cover group-hover:opacity-75"
@@ -45,10 +47,10 @@ const Shop = ({ products }) => {
                 <p className="mb-2 text-lg font-italic text-gray-900">
                   ${product.price}
                 </p>
-                <p className="w-3/4 lg:w-full">{product.description}</p>
+                <p className="w-3/4 lg:w-full text-md text-gray-600">{product.description}</p>
 
-                <form className="flex flex-col gap-10 mt-10 w-fit">
-                  <div class="grid grid-cols-3">
+                <form className="flex flex-col gap-10 mt-10 w-3/4 lg:w-fit">
+                  <div className="grid grid-cols-3">
                     <button
                       className="mr-1 px-5 border-2"
                       onClick={decrementQuantity}
@@ -63,7 +65,7 @@ const Shop = ({ products }) => {
                       {quantity}
                     </span>
                     <button
-                      className="ml-1 px-5  border-2"
+                      className="ml-1 px-5 border-2"
                       onClick={incrementQuantity}
                     >
                       +
@@ -73,13 +75,13 @@ const Shop = ({ products }) => {
                   <button
                     onClick={() => addToCartHandler(product, quantity)}
                     type="button"
-                    className="w-fit m-auto flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                    className="w-full m-auto flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10 lg:w-fit"
                   >
                     Add to Cart ({"$" + quantity * product.price})
                   </button>
                 </form>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

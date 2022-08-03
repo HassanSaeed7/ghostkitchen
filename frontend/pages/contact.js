@@ -14,9 +14,7 @@ const contact = () => {
           Contact Us
         </h2>
         <p className="py-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, quis
-          repellendus? Possimus, hic qui? Ipsam illo incidunt dolorum corrupti
-          ab officiis culpa eveniet eligendi dicta nostrum nihil.
+          Have any questions or comments? Please reach out to us! We will get back to you at our earliest convenience.
         </p>
 
         <div>

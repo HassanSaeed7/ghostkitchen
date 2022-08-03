@@ -11,7 +11,7 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice, setPurchasedItems, tax, total } =
+  const { cartItems, totalPrice, setPurchasedItems, setPurchasedPrice, setTaxTotal, tax, total } =
     useStateContext();
   const router = useRouter();
   const builder = imageUrlBuilder(sanityClient);
@@ -29,6 +29,8 @@ const checkout = () => {
   const orderHandler = (event) => {
     event.preventDefault();
     setPurchasedItems(cartItems);
+    setPurchasedPrice(totalPrice);
+    setTaxTotal(total);
     router.push("/confirmation");
   };
 
@@ -68,9 +70,9 @@ const checkout = () => {
           </ol>
         </nav>
 
-        <h1 className="text-4xl font-bold text-center">Checkout</h1>
-        <div className="max-w-screen-xl m-auto grid grid-cols-4 gap-5">
-          <div className="border border-2 col-span-3 min-h-[50vh]">
+        <h1 className="text-3xl lg:text-5xl font-bold text-center">Checkout</h1>
+        <div className="max-w-screen-xl grid grid-cols-4 gap-5 m-10 lg:m-auto">
+          <div className="border border-2 col-span-4 lg:col-span-3 min-h-[50vh]">
             <div className="grid grid-cols-4 gap-5 px-10 py-3 items-center">
               <p className="col-span-2 text-center font-bold underline text-xl">
                 Item(s)
@@ -109,7 +111,7 @@ const checkout = () => {
             </div>
           </div>
 
-          <div className="border border-2 p-5">
+          <div className="border border-2 p-5 col-span-4 lg:col-span-1">
             <div>
               <div className="w-full flex gap-2 justify-between items-center">
                 <p className="text-lg">Subtotal:</p>
