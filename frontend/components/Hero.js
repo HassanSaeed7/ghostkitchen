@@ -38,7 +38,7 @@ export default function Hero() {
                             animate="visible"
                             variants={item}
                             transition={{ delay: 0.25 }}
-                            src="1.jpg"
+                            src="1.webp"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
@@ -49,42 +49,7 @@ export default function Hero() {
                             animate="visible"
                             variants={item}
                               transition={{ delay: 0.25 }}
-                            src="2.jpg"
-                            alt=""
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <motion.img
-                            initial="hidden" 
-                            animate="visible"
-                            variants={item}
-                              transition={{ delay: 0.25 }}
-                            src="3.jpg"
-                            alt=""
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <motion.img
-                            initial="hidden" 
-                            animate="visible"
-                            variants={item}
-                              transition={{ delay: 0.25 }}
-                            src="8.jpg"
-                            alt=""
-                            className="w-full h-full object-center object-cover"
-                          />
-                        </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
-                          <motion.img
-                            initial="hidden" 
-                            animate="visible"
-                            variants={item}
-                              transition={{ delay: 0.25 }}
-                            src="9.jpg"
+                            src="2.webp"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
@@ -97,7 +62,7 @@ export default function Hero() {
                             animate="visible"
                             variants={item}
                               transition={{ delay: 0.25 }}
-                            src="10.jpg"
+                            src="3.webp"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
@@ -108,7 +73,42 @@ export default function Hero() {
                             animate="visible"
                             variants={item}
                               transition={{ delay: 0.25 }}
-                            src="11.jpg"
+                            src="8.webp"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ delay: 0.25 }}
+                            src="9.webp"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ delay: 0.25 }}
+                            src="10.webp"
+                            alt=""
+                            className="w-full h-full object-center object-cover"
+                          />
+                        </div>
+                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                          <motion.img
+                            initial="hidden" 
+                            animate="visible"
+                            variants={item}
+                              transition={{ delay: 0.25 }}
+                            src="11.webp"
                             alt=""
                             className="w-full h-full object-center object-cover"
                           />
