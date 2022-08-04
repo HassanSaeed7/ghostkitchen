@@ -97,7 +97,7 @@ export default function Cart() {
                                     </div>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <div class='flex w-full mr-2'>
+                                    <div className='flex w-full mr-2'>
                                     <button className='mr-1 flex-1 border-2' onClick={ () => toggleCartItemsQuantity(product._id, 'dec') }>-</button>
                                     <span className='leading-loose text-center flex-auto border-2 border-gray-200' id='quantity' name='quantity'>{product.quantity}</span>
                                     <button className='ml-1 flex-1 border-2' onClick={ () => toggleCartItemsQuantity(product._id, 'inc') }>+</button>

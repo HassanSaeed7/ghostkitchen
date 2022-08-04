@@ -9,9 +9,9 @@ const Map = () => {
         width="100%"
         height="100%"
         style={{ border: "0" }}
-        allowfullscreen=""
+        allowFullScreen=""
         loading="lazy"
-        src="https://maps.google.com/maps?q=downtown%20los%20angeles,%20ca&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        src="https://maps.google.com/maps?q=downtown%20los%20angeles,%20ca&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
                 </iframe>
         </div>
     </div>

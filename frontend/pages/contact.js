@@ -19,7 +19,7 @@ const contact = () => {
 
         <div>
           <form className="flex flex-col gap-2">
-            <label for="name">Name</label>
+            <label htmlfor="name">Name</label>
             <input
               className="border-solid border-2 rounded-lg indent-1"
               type="text"
@@ -28,7 +28,7 @@ const contact = () => {
               required
             />
 
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               className="border-solid border-2 rounded-lg indent-1"
               type="email"
@@ -37,7 +37,7 @@ const contact = () => {
               required
             />
 
-            <label for="phone">Phone</label>
+            <label htmlFor="phone">Phone</label>
             <input
               className="border-solid border-2 rounded-lg indent-1"
               type="tel"
@@ -46,7 +46,7 @@ const contact = () => {
               required
             />
 
-            <label for="message">Message</label>
+            <label htmlFor="message">Message</label>
             <textarea
               className="border-solid border-2 rounded-lg indent-1"
               rows="5"

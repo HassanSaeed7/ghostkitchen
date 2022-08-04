@@ -2,17 +2,14 @@ import React from 'react'
 import { urlFor } from '../lib/sanity.server'
 
 const Menu = ({products}) => {
-   
-
-    console.log(products)
-  return (
+    return (
     <div>
         <h2 className="text-4xl font-bold text-center mt-20 mb-5 text-indigo-600">House Specials</h2>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {products.map(product => (
                 
-              <div className="w-full h-[400px] overflow-hidden">
+              <div className="w-full h-[400px] overflow-hidden" key={product.name}>
                 <img
                   src={urlFor(product.image[0].asset._ref)}
                   alt="product image"

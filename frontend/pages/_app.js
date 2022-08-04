@@ -46,7 +46,9 @@ function MyApp({ Component, pageProps, router }) {
     exit="exit" 
     transition={{ type: 'linear' }}
     key={router.route}>
+
     <Component {...pageProps} />
+    
     </motion.main>
     </AnimatePresence>
 
