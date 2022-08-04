@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "cornsilk-stingray"
+    "name": "cornsilk-stingray",
+    "basePath": "/admin"
   },
   "api": {
     "projectId": "78ipqa7e",
@@ -11,7 +12,8 @@
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "@sanity/dashboard"
   ],
   "env": {
     "development": {

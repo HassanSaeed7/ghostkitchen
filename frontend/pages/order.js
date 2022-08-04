@@ -1,14 +1,9 @@
-import { sanityClient } from "../lib/sanity.server";
-import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient, urlFor } from "../lib/sanity.server";
 import { useStateContext } from "../context/StateContext";
 import {motion} from "framer-motion";
 
 const Shop = ({ products }) => {
-  const builder = imageUrlBuilder(sanityClient);
-
-  function urlFor(source) {
-    return builder.image(source);
-  }
+  
 
   const { quantity, incrementQuantity, decrementQuantity, addToCartHandler } =
     useStateContext();
@@ -23,12 +18,12 @@ const Shop = ({ products }) => {
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-indigo-600 text-3xl lg:text-5xl font-bold text-center">Order Now</h2>
 
-        <div className="divide-y-4">
+        <div className="divide-y-2">
           {products.map((product) => (
             <div 
             key={product.name}  
             className="flex flex-col justify-center items-center gap-12 py-16 lg:flex-row">
-              <div className="w-3/4 lg:w-2/4 h-[400px]" >
+              <div className="w-3/4 lg:w-2/4 h-[500px]" >
                 <motion.img
                    initial="hidden" 
                    animate="visible"

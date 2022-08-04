@@ -1,13 +1,8 @@
 import React from 'react'
-import {sanityClient} from '../lib/sanity.server'
-import imageUrlBuilder from '@sanity/image-url'
+import { urlFor } from '../lib/sanity.server'
 
 const Menu = ({products}) => {
-    const builder = imageUrlBuilder(sanityClient)
-
-    function urlFor(source) {
-      return builder.image(source)
-    }
+   
 
     console.log(products)
   return (

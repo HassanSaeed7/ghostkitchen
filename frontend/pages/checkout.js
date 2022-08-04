@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useStateContext } from "../context/StateContext";
 import { useRouter } from "next/router";
-import { sanityClient } from "../lib/sanity.server";
-import imageUrlBuilder from "@sanity/image-url";
+import { urlFor } from "../lib/sanity.server";
 
 const breadcrumbs = [
   { id: 1, name: "Home", href: "/" },
@@ -11,15 +10,9 @@ const breadcrumbs = [
 ];
 
 const checkout = () => {
-  const { cartItems, totalPrice, setPurchasedItems, setPurchasedPrice, setTaxTotal, tax, total } =
-    useStateContext();
   const router = useRouter();
-  const builder = imageUrlBuilder(sanityClient);
-
-  function urlFor(source) {
-    return builder.image(source);
-  }
-
+  const { cartItems, totalPrice, setPurchasedItems, setPurchasedPrice, setTaxTotal, tax, total } = useStateContext();
+  
   useEffect(() => {
     if (cartItems.length === 0) {
       router.replace("/order");
