@@ -2,6 +2,7 @@ import React from "react";
 import Hours from "./Hours";
 import Image from "next/image";
 import Logo from "../public/samo.png";
+import Link from "next/link";
 
 const footerNav = [
   { name: "Facebook", src: "/facebook.svg", href: "#" },
@@ -55,22 +56,21 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-4 justify-center items-center lg:items-start">
-          <ul className="w-full flex flex-col gap-2">
+          <ul className="w-full flex flex-col gap-5">
             {navigation.map((i) => (
               <li className="h-16 w-full border border-white rounded-lg ">
-                <a
-                  href={i.href}
-                  className="flex justify-center items-center h-full text-lg "
-                >
+                <Link href={i.href}>
+                <a className="flex justify-center items-center h-full text-lg ">
                   {i.name}
                 </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
       </div>
 
-      <p className="mt-5 text-center">
+      <p className="text-center">
         &copy; 2022 | Samosa House Inc, All Rights Reserved.
       </p>
     </div>

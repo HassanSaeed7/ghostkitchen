@@ -4,7 +4,7 @@ const Hours = () => {
   return (
     <>
         <h3 className='text-xl italic text-center'>Hours of Operation:</h3>
-        <ul className='w-full m-auto grid items-center gap-5'>
+        <ul className='w-full grid items-center gap-2'>
             <li className='flex justify-between px-4 lg:px-0'>
                 <span className='text-xl font-bold'>Monday - Wednesday</span>
                 <span>12 pm - 12 am</span>
