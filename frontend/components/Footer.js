@@ -22,7 +22,7 @@ const navigation = [
 const Footer = () => {
   return (
     <div className="bg-black text-white min-h-[60vh]">
-      <div className="w-full min-h-half flex justify-center items-center gap-20 m-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
+      <div className="w-full min-h-half lg:flex justify-center items-center gap-20 m-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
         <div className="flex flex-col justify-center items-center">
           <div className="text-center">
             <Image
@@ -41,13 +41,13 @@ const Footer = () => {
         </div>
 
         <div className="flex justify-start items-center lg:items-start">
-          <ul className="w-full grid grid-rows-4 grid-cols-3 grid-flow-col justify-evenly gap-5">
+          <ul className="w-full lg:grid grid-rows-4 grid-cols-3 grid-flow-col justify-evenly gap-5">
             {navigation.map((i) => (
             <li className="h-16 w-full rounded-lg hover:bg-indigo-600 transition-colors">
 
               {i.src
               ? <Link href={i.href}>
-                <a className="p-5 flex items-center h-full text-lg gap-3">
+                <a className="p-5 flex justify-center items-center h-full text-lg gap-3">
                 <Image src={i.src} alt={i.name} width={30} height={30} />
                 <p>{i.name}</p>
               </a>
