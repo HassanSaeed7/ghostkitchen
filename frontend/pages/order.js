@@ -5,8 +5,7 @@ import {motion} from "framer-motion";
 const Shop = ({ products }) => {
   
 
-  const { quantity, incrementQuantity, decrementQuantity, addToCartHandler } =
-    useStateContext();
+  const { quantity, incrementQuantity, decrementQuantity, addToCartHandler } = useStateContext();
 
     const item = {
       visible: { opacity: 1 },

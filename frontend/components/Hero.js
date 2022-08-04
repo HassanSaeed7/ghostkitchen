@@ -11,7 +11,7 @@ export default function Hero() {
 
     return (
       <div className="min-h-[100vh] relative bg-white overflow-hidden">
-        <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+        <div className="pt-2 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
             <div className="sm:max-w-lg">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
@@ -19,7 +19,7 @@ export default function Hero() {
                 <span className="block text-indigo-600 xl:inline">Samosas</span>
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-              We aim to combine Indian delicacies with the western palate. Our meals are always fresh and flavorful. Our high-quality standards start from our raw ingredients and continue throughout the cooking process to ensure the most soulful meals. 
+              We aim to bring South Asian delicacies to the Western palate. High-quality standards start from our raw ingredients and continue throughout the cooking process to ensure the most soulful meals. Try our decadent, flavorful menu today.
               </p>
             </div>
             <div>

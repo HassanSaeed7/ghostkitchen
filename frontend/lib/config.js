@@ -4,4 +4,5 @@ export const config = {
     apiVersion: '2022-07-15',
     useCdn: true,
     token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+    ignoreBrowserTokenWarning: true
 }
