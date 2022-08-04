@@ -1,48 +1,70 @@
 import React from "react";
+import Hours from "./Hours";
 import Image from "next/image";
-import Facebook from "../public/facebook.svg";
-import Instagram from "../public/instagram.svg";
-import Email from "../public/email.svg";
-import Phone from "../public/phone.svg";
 import Logo from "../public/samo.png";
+
+const footerNav = [
+    { name: "Facebook", src: "/facebook.svg", href: "#" },
+    { name: "Instagram", src: "/instagram.svg", href: "#" },
+    { name: "Email", src: "/email.svg", href: "#" },
+    { name: "Phone", src: "/phone.svg", href: "#" },
+];
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Order", href: "/order" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
 
 const Footer = () => {
   return (
-    <div className="min-h-half m-auto xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
-      <div className="min-h-third border-4 p-10 md:w-full">
-        <div className="justify-evenly items-center">
-          <div className=" lg:col-span-1 text-center pt-10 lg:pt-0">
-            <Image src={Logo} alt='logo' width={100} height={100} className="m-auto" />
-            <h6 className="text-center text-4xl font-bold mb-5">Samosa House</h6>{" "}
-          </div>
+    <div className="bg-black text-white min-h-twothirds">
 
-          <div className="flex gap-4 justify-center items-center lg:items-start">
-            <ul className="w-1/8 flex gap-3">
-              <li>
-                <a href="#">
-                  <Image src={Facebook} alt="Facebook" width={64} height={64} />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <Image src={Instagram} alt="Instagram" width={64} height={64} />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <Image src={Email} alt="Email" width={64} height={64} />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <Image src={Phone} alt="Phone" width={64} height={64} />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <p className='mt-5 text-center'>&copy; 2022 | Samosa House Inc, All Rights Reserved.</p>
-        </div>
+    <div className="min-h-twothirds grid lg:grid-cols-3 items-center gap-20 m-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
+
+    <div className='flex flex-col justify-center items-center'>
+      <div className="text-center">
+          <Image src={Logo} alt='logo' width={100} height={100} className="m-auto fill-white" />
+          <h6 className="text-center text-4xl font-bold mb-5">Samosa House</h6>{" "}
+      </div> 
+
+      <Hours />
+    </div>
+      
+
+         
+
+      <div className="flex justify-center items-center lg:items-start">
+        <ul className="w-full flex flex-col gap-5">
+         {footerNav.map(i => (
+          <li className="h-16 rounded-lg border border-white">
+          <a href={i.href} className='pl-[25%] flex items-center h-full text-lg gap-3'>
+            <Image src={i.src} alt={i.name} width={64} height={64} />
+            <p>{i.name}</p>
+          </a>
+        </li>
+         ))}
+        </ul>
       </div>
+
+
+
+      <div className="flex gap-4 justify-center items-center lg:items-start">
+
+      <ul className="w-full flex flex-col gap-5">
+        {navigation.map(i => (
+          <li className="h-16 w-full border border-white rounded-lg ">
+            <a href={i.href} className='flex justify-center items-center h-full text-lg '>
+            {i.name}
+            </a>
+          </li>))}
+      </ul>
+      </div>
+
+      </div>
+
+      <p className='mt-5 text-center'>&copy; 2022 | Samosa House Inc, All Rights Reserved.</p>
     </div>
   );
 };

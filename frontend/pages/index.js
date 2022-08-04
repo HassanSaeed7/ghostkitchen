@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Hero from '../components/Hero'
-import Hours from '../components/Hours'
 import Menu from '../components/Menu'
 import Summary from '../components/Summary'
 import { sanityClient } from "../lib/sanity.server";
@@ -23,7 +22,6 @@ const Home = ({ products }) => {
     <Hero />
     <Summary />
     <Menu products={products} />
-    <Hours />
     </main>
 
     </div>
